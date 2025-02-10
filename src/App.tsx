@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./styles/index.scss";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" /> {/* 메인페이지*/}
+        <Route path="/login" /> {/* 로그인페이지*/}
+        <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
+        <Route path="/register" /> {/* 회원가입페이지*/}
+        <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
+        <Route path="/airoadmaker/generate" /> {/* AI로드메이커 생성*/}
+        <Route path="/airoadmaker/detail" /> {/* AI로드메이커 상세페이지*/}
+        <Route path="/list" /> {/* 여행지 리스트 */}
+        <Route path="/list/detail" /> {/* 여행지 상세페이지*/}
+        <Route path="/list/new" /> {/* 여행지 신규 등록*/}
+        <Route path="/list/report" /> {/* 여행지 신고 */}
+        <Route path="/list/rank" /> {/* 여행지 순위 */}
+        <Route path="/list/festival" /> {/* 여행지 축제 페이지 */}
+        <Route path="/list/festival/new" /> {/* 축제 신규등록 페이지 */}
+        <Route path="/roadtalk" /> {/* 로드톡 리스트 페이지*/}
+        <Route path="/roadtalk/detail" /> {/* 로드톡 상세 페이지 */}
+        <Route path="/mypage" /> {/* 마이페이지 */}
+        <Route path="/admin" /> {/* 관리자페이지 */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
+export default App;
