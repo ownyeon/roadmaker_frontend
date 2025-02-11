@@ -2,7 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./01_common/styles/index.scss";
 import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import Header from "./01_common/components/header/Header";
-
+import Aos from "aos";
+if (typeof window !== "undefined") {
+  import("bootstrap"); 
+}
 function App() {
   return (
     <BrowserRouter>

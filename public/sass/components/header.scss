@@ -202,7 +202,6 @@
       }
       li {
         position: relative;
-
         a {
           cursor: pointer;
         }
@@ -237,7 +236,7 @@
         display: flex;
 
         > li {
-          padding: 25px 0;
+          padding: 0;
 
           &.menu-item-has-children > a .icon {
             font-size: 7px;

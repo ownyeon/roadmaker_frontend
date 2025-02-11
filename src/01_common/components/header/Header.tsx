@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import CurrenctyMegaMenu from "./CurrenctyMegaMenu";
-import LanguageMegaMenu from "./LanguageMegaMenu";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
+import "../../styles/Header.scss";
+import HeaderSearch from "./HeaderSearch";
+
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -29,14 +30,16 @@ const Header = () => {
         <div className="header__container px-30 sm:px-20">
           <div className="row justify-between items-center">
             <div className="col-auto">
-              <div className="d-flex items-center">
-                <Link to="/" className="header-logo mr-20">
-                  <img src="/src/01_common/assets/imgs/HeaderLogo.png" alt="logo" />
+              <div className="d-flex items-end">
+                <Link to="/" className="header-logo mr-60">
+                  <img
+                    src="/src/01_common/assets/imgs/HeaderLogo.png"
+                    alt="logo"
+                  />
                 </Link>
                 {/* End logo */}
-
                 <div className="header-menu">
-                  <div className="header-menu__content">
+                  <div className="header-menu__content ">
                     <MainMenu style="text-dark-1" />
                   </div>
                 </div>
@@ -45,37 +48,18 @@ const Header = () => {
               {/* End d-flex */}
             </div>
             {/* End col */}
-
             <div className="col-auto">
               <div className="d-flex items-center">
-                <div className="row x-gap-20 items-center xxl:d-none">
-                  <CurrenctyMegaMenu textClass="text-dark-1" />
-                  {/* End Megamenu for Currencty */}
-
-                  {/* Start vertical devider*/}
-                  <div className="col-auto">
-                    <div className="w-1 h-20 bg-white-20" />
-                  </div>
-                  {/* End vertical devider*/}
-
-                  <LanguageMegaMenu textClass="text-dark-1" />
-                  {/* End Megamenu for Language */}
-                </div>
-                {/* End language and currency selector */}
-
+                <HeaderSearch/>
                 {/* Start btn-group */}
-                <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                  <Link
-                    to="/signup"
-                    className="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white"
-                  >
-                    Sign In / Register
-                  </Link>
+                <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none " style={{marginTop:"15px"}}>
+                  <Link to="/login" className="mr-20">로그인</Link>
+                  <Link to="/register" className="mr-20">회원가입</Link>
                 </div>
                 {/* End btn-group */}
 
                 {/* Start mobile menu icon */}
-                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1">
+                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1" style={{marginTop:"15px"}}>
                   <div>
                     <Link
                       to="/login"

@@ -44,7 +44,7 @@ const MobileMenu = () => {
     <>
       <div className="pro-header d-flex align-items-center justify-between border-bottom-light">
         <Link to="/">
-          <img src="/img/general/logo-dark.svg" alt="brand" />
+          <img src="/src/01_common/assets/imgs/HeaderLogo.png" alt="brand" style={{height:"60px"}} />
         </Link>
         {/* End logo */}
 
@@ -61,87 +61,15 @@ const MobileMenu = () => {
 
       <Sidebar width="400" backgroundColor="#fff">
         <Menu>
-          <SubMenu
-            label="Home"
-            className={
-              homeItems.some(
-                (item) =>
-                  item.routePath?.split("/")[1] == pathname.split("/")[1],
-              )
-                ? "menu-active-link"
-                : ""
-            }
+        <MenuItem
+            onClick={() => navigate("/airoadmaker")}
+            className={pathname === "/airoadmaker" ? "menu-active-link" : ""}
           >
-            {homeItems.map((item, i) => (
-              <MenuItem
-                key={i}
-                onClick={() => navigate(item.routePath)}
-                className={
-                  isActiveLink(item.routePath, pathname)
-                    ? "menu-active-link"
-                    : "inactive-menu"
-                }
-              >
-                {item.name}
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End  All Home Menu */}
-
-          <SubMenu
-            label="Categories"
-            className={isActiveParent ? "menu-active-link" : ""}
-          >
-            {categorieMobileItems.map((item) => (
-              <SubMenu
-                label={item.title}
-                key={item.id}
-                className={
-                  isActiveNestedParent == item.id
-                    ? "menu-active-link"
-                    : "inactive-menu"
-                }
-              >
-                {item.menuItems.map((single) => (
-                  <SubMenu
-                    label={single.title}
-                    key={single.id}
-                    className={
-                      isActiveNestedParentTwo == single.title
-                        ? "menu-active-link"
-                        : "inactive-menu"
-                    }
-                  >
-                    {single.menuList.map((menu, i) => (
-                      <MenuItem
-                        key={i}
-                        onClick={() => navigate(menu.routePath)}
-                        className={
-                          isActiveLink(menu.routePath, pathname)
-                            ? "menu-active-link"
-                            : "inactive-menu"
-                        }
-                      >
-                        {menu.name}
-                      </MenuItem>
-                    ))}
-                  </SubMenu>
-                ))}
-              </SubMenu>
-            ))}
-          </SubMenu>
-          {/* End  All Categories Menu */}
-
-          <MenuItem
-            onClick={() => navigate("/destinations")}
-            className={pathname === "/destinations" ? "menu-active-link" : ""}
-          >
-            Desitinations
+            AI로드메이커
           </MenuItem>
-          {/* End  Desitinations Menu */}
-
+          {/* End  AI로드메이커 Menu */}
           <SubMenu
-            label="Blog"
+            label="여행지"
             className={
               travelItems.some(
                 (item) =>
@@ -165,67 +93,14 @@ const MobileMenu = () => {
               </MenuItem>
             ))}
           </SubMenu>
-          {/* End  All Blog Menu */}
-
-          <SubMenu
-            label="Pages"
-            className={
-              pageItems.some(
-                (item) =>
-                  item.routePath?.split("/")[1] == pathname.split("/")[1],
-              )
-                ? "menu-active-link"
-                : ""
-            }
-          >
-            {pageItems.map((item, i) => (
-              <MenuItem
-                key={i}
-                onClick={() => navigate(item.routePath)}
-                className={
-                  isActiveLink(item.routePath, pathname)
-                    ? "menu-active-link"
-                    : "inactive-menu"
-                }
-              >
-                {item.name}
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End  All Pages Menu */}
-
-          <SubMenu
-            label="Dashboard"
-            className={
-              pathname.split("/")[1] == "dashboard" ||
-              pathname.split("/")[1] == "vendor-dashboard"
-                ? "menu-active-link"
-                : ""
-            }
-          >
-            {dashboardItems.map((item, i) => (
-              <MenuItem
-                key={i}
-                onClick={() => navigate(item.routePath)}
-                className={
-                  isActiveLink(item.routePath, pathname)
-                    ? "menu-active-link"
-                    : "inactive-menu"
-                }
-              >
-                {item.name}
-              </MenuItem>
-            ))}
-          </SubMenu>
-          {/* End  All Dashboard Menu */}
-
+          {/* End  여행지 Menu */}
           <MenuItem
-            onClick={() => navigate("/contact")}
-            className={pathname === "/contact" ? "menu-active-link" : ""}
+            onClick={() => navigate("/roadtalk")}
+            className={pathname === "/roadtalk" ? "menu-active-link" : ""}
           >
-            Contact
+            로드톡
           </MenuItem>
-          {/* End Contact  Menu */}
+          {/* End  로드톡 Menu */}
         </Menu>
       </Sidebar>
 
@@ -238,14 +113,6 @@ const MobileMenu = () => {
           <div className="d-flex x-gap-20 items-center">
             <Social />
           </div>
-        </div>
-        <div className="mt-20">
-          <Link
-            className=" button -dark-1 px-30 fw-400 text-14 bg-blue-1 h-50 text-white"
-            to="/"
-          >
-            Become An Expert
-          </Link>
         </div>
       </div>
       {/* End pro-footer */}

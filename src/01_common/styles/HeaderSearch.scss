@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Hahmlet-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+div.searchBox{
+    border-bottom: 1px solid #000 !important;
+    padding-left: 0 !important;
+    font-family: 'Hahmlet-Regular', sans-serif;
+    width: 340px;
+    input{
+        font-size: 14px !important;
+    }
+    button{
+
+    }
+}

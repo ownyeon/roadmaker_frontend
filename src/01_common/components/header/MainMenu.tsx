@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import '../../styles/Header.scss';
 import {
-  homeItems,
-  travelItems,
+  travelItems
 } from "../data/HeaderData";
 import {
   isActiveLink,
