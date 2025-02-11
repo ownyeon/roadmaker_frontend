@@ -4,16 +4,16 @@ import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import Header from "./01_common/components/header/Header";
 import Aos from "aos";
 if (typeof window !== "undefined") {
-  import("bootstrap"); 
+  import("bootstrap");
 }
-import LogIn from "./03_kimjongbeom/pages/Login";
+// import LogIn from "./03_kimjongbeom/pages/Login";
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
-        <Route path="/login" element={<LogIn/>}/> {/* 로그인페이지*/}
+        <Route path="/login" /> {/* 로그인페이지*/}
         <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
         <Route path="/register" /> {/* 회원가입페이지*/}
         <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
@@ -27,7 +27,7 @@ function App() {
         <Route path="/list/festival" /> {/* 여행지 축제 페이지 */}
         <Route path="/list/festival/new" /> {/* 축제 신규등록 페이지 */}
         <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
-        <Route path="/roadtalk/detail" /> {/* 로드톡 상세 페이지 */}
+        <Route path="/roadtalk/:id" /> {/* 로드톡 상세 페이지 */}
         <Route path="/mypage" /> {/* 마이페이지 */}
         <Route path="/admin" /> {/* 관리자페이지 */}
       </Routes>

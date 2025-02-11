@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
 import "../../styles/Header.scss";
@@ -7,6 +7,7 @@ import HeaderSearch from "./HeaderSearch";
 
 
 const Header = () => {
+  const { pathname } = useLocation();
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
@@ -53,8 +54,8 @@ const Header = () => {
                 <HeaderSearch/>
                 {/* Start btn-group */}
                 <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none " style={{marginTop:"15px"}}>
-                  <Link to="/login" className="mr-20">로그인</Link>
-                  <Link to="/register" className="mr-20">회원가입</Link>
+                  <Link to="/login" className={pathname === "/login" ? "current mr-20" : "mr-20"}>로그인</Link>
+                  <Link to="/register" className={pathname === "/register" ? "current mr-20" : "mr-20"}>회원가입</Link>
                 </div>
                 {/* End btn-group */}
 

@@ -1,25 +1,21 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { useEffect, useState } from "react";
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Social from "../common/social/Social";
 import {
-  homeItems,
-  travelItems,
-  pageItems,
-  dashboardItems,
-  categorieMobileItems,
   categorieMegaMenuItems,
+  travelItems
 } from "../data/HeaderData";
 import { isActiveLink } from "../utils/linkActiveChecker";
-import Social from "../common/social/Social";
 import ContactInfo from "./ContactInfo";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import HeaderSearch from "./HeaderSearch";
 
 const MobileMenu = () => {
   const { pathname } = useLocation();
 
   const [isActiveParent, setIsActiveParent] = useState(false);
-  const [isActiveNestedParentTwo, setisActiveNestedParentTwo] = useState<string>("");
+  const [isActiveNestedParentTwo, setisActiveNestedParentTwo] =
+    useState<string>("");
   const [isActiveNestedParent, setisActiveNestedParent] = useState<number>(0);
 
   const navigate = useNavigate();
@@ -44,7 +40,11 @@ const MobileMenu = () => {
     <>
       <div className="pro-header d-flex align-items-center justify-between border-bottom-light">
         <Link to="/">
-          <img src="/src/01_common/assets/imgs/HeaderLogo.png" alt="brand" style={{height:"60px"}} />
+          <img
+            src="/src/01_common/assets/imgs/HeaderLogo.png"
+            alt="brand"
+            style={{ height: "60px" }}
+          />
         </Link>
         {/* End logo */}
 
@@ -56,12 +56,13 @@ const MobileMenu = () => {
           <i className="icon icon-close"></i>
         </div>
         {/* icon close */}
+        <HeaderSearch/>
       </div>
       {/* End pro-header */}
 
       <Sidebar width="400" backgroundColor="#fff">
         <Menu>
-        <MenuItem
+          <MenuItem
             onClick={() => navigate("/airoadmaker")}
             className={pathname === "/airoadmaker" ? "menu-active-link" : ""}
           >
@@ -73,7 +74,7 @@ const MobileMenu = () => {
             className={
               travelItems.some(
                 (item) =>
-                  item.routePath?.split("/")[1] == pathname.split("/")[1],
+                  item.routePath?.split("/")[1] == pathname.split("/")[1]
               )
                 ? "menu-active-link"
                 : ""
@@ -88,6 +89,7 @@ const MobileMenu = () => {
                     ? "menu-active-link"
                     : "inactive-menu"
                 }
+                style={{ fontFamily: "Hahmlet-Regular" }}
               >
                 {item.name}
               </MenuItem>

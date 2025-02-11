@@ -28,7 +28,7 @@ const MainMenu = ({ style = "" }) => {
           <a href="#">
             <span className="mr-20">여행지<i className="bi bi-caret-down-fill fs-5"></i></span>
           </a>
-          <ul className="subnav">
+          <ul className="subnav" style={{fontFamily:"Hahmlet-Regular"}}>
             {travelItems.map((menu, i) => (
               <li
                 key={i}

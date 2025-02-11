@@ -8,7 +8,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
-}
+} 
 
 body {
   padding: 0;
@@ -18,6 +18,9 @@ body {
   color: var(--color-dark-1);
   font-size: variables.$font-size;
   line-height: 1.875;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
 }
 .cursor-pointer {
   cursor: pointer;

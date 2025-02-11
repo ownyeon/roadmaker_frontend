@@ -1,14 +1,18 @@
 @font-face {
-    font-family: 'establishRetrosansOTF';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "establishRetrosansOTF";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 header {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) ;
-    font-family: 'establishRetrosansOTF', sans-serif;
-    font-size: 16px;
-    .header-menu__content{
-        justify-content: flex-end !important;
-    }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  font-family: "establishRetrosansOTF", sans-serif;
+  font-size: 16px;
+  .header-menu__content {
+    justify-content: flex-end !important;
   }
+}
+.current {
+  color: var(--color-blue-1);
+}
