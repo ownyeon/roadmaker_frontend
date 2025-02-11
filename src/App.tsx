@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./01_common/styles/index.scss";
 import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import Header from "./01_common/components/header/Header";
-import Aos from "aos";
+//import Aos from "aos";
+import FindTourList from "./05_choesuji/pages/main";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
@@ -19,7 +20,7 @@ function App() {
         <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
         <Route path="/airoadmaker/generate" /> {/* AI로드메이커 생성*/}
         <Route path="/airoadmaker/detail" /> {/* AI로드메이커 상세페이지*/}
-        <Route path="/list" /> {/* 여행지 리스트 */}
+        <Route path="/list" element={<FindTourList/>}/> {/* 여행지 리스트 */}
         <Route path="/list/detail" /> {/* 여행지 상세페이지*/}
         <Route path="/list/new" /> {/* 여행지 신규 등록*/}
         <Route path="/list/report" /> {/* 여행지 신고 */}
