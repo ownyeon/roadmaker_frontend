@@ -6,13 +6,14 @@ import Aos from "aos";
 if (typeof window !== "undefined") {
   import("bootstrap"); 
 }
+import LogIn from "./03_kimjongbeom/pages/Login";
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
-        <Route path="/login" /> {/* 로그인페이지*/}
+        <Route path="/login" element={<LogIn/>}/> {/* 로그인페이지*/}
         <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
         <Route path="/register" /> {/* 회원가입페이지*/}
         <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
