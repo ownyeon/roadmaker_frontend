@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./01_common/styles/index.scss";
 import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import Header from "./01_common/components/header/Header";
+import LogIn from "./03_kimjongbeom/pages/Login";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
-        <Route path="/login" /> {/* 로그인페이지*/}
+        <Route path="/login" element={<LogIn/>}/> {/* 로그인페이지*/}
         <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
         <Route path="/register" /> {/* 회원가입페이지*/}
         <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
