@@ -1,3 +1,6 @@
+@use '../animations/easings.scss' as easings;
+@use '../abstracts/variables' as variables;
+
 button {
   padding: 0;
   margin: 0;
@@ -23,7 +26,7 @@ button {
   line-height: 1.2;
   border-radius: 4px;
   border: 1px solid transparent;
-  transition: all 0.3s $easeOutQuart;
+  transition: all 0.3s easings.$easeOutQuart;
 }
 
 .button {
@@ -47,7 +50,7 @@ button {
   }
 }
 
-@each $name, $color in $colors {
+@each $name, $color in variables.$colors {
   .button.-#{ "" + $name } {
     &:hover,
     &.active {
@@ -77,7 +80,7 @@ button {
 
 .button.-blue-1-05 {
   &:hover {
-    background-color: color-opac(blue-1, 0.05) !important;
+    background-color:rgba(var(--color-blue-1), 0.05) !important;
     color: var(--color-blue-1) !important;
   }
 }

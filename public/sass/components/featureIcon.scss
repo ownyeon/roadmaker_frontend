@@ -1,3 +1,7 @@
+@use '../animations/easings.scss' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/tools' as *;
+
 .featureIcon.-type-1 {
   &.-hover-shadow {
     transition: all 0.3s $easeOutQuart;

@@ -1,5 +1,8 @@
+@use './variables' as *;
+@use 'sass:map';
+
 @mixin media-above($breakpoint) {
-  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  $breakpoint-value: map.get($breakpoints, $breakpoint);
 
   @media (min-width: $breakpoint-value) {
     @content;
@@ -7,7 +10,7 @@
 }
 
 @mixin media-below($breakpoint) {
-  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  $breakpoint-value: map.get($breakpoints, $breakpoint);
 
   @media (max-width: ($breakpoint-value - 1)) {
     @content;
@@ -15,8 +18,8 @@
 }
 
 @mixin media-between($lower, $upper) {
-  $lower-breakpoint: map-get($breakpoints, $lower);
-  $upper-breakpoint: map-get($breakpoints, $upper);
+  $lower-breakpoint: map.get($breakpoints, $lower);
+  $upper-breakpoint: map.get($breakpoints, $upper);
 
   @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
     @content;
@@ -24,7 +27,7 @@
 }
 
 @function color-opac($key, $opacity: 1, $map: $colors) {
-  $value: map-get($map, $key);
+  $value: map.get($map, $key);
   $value: rgba($value, $opacity);
   @return $value;
 }

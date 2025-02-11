@@ -1,7 +1,15 @@
 {
+  "compilerOptions": {
+    "allowJs": true,
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*":["src/*"] // '@'를 'src'로 맵핑
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
 }

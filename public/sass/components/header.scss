@@ -1,3 +1,7 @@
+@use '../animations/easings.scss' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/tools' as *;
+
 .header-margin {
   margin-top: 90px;
 
@@ -60,7 +64,7 @@
     position: relative;
 
     img {
-      width: 140px;
+      width: 80px;
 
       @include media-below(md) {
         max-width: 120px;
@@ -224,7 +228,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 500;
         transition: all 0.2s $easeOutQuart;
       }

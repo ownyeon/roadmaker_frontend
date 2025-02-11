@@ -1,3 +1,7 @@
+@use '../animations/easings.scss' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/tools' as *;
+
 .sectionTitle {
   &__title {
   }

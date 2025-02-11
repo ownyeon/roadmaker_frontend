@@ -1,3 +1,5 @@
+@use './easings.scss' as easings;
+
 [data-anim-wrap] {
   pointer-events: none;
   &.animated { pointer-events: auto; }
@@ -21,7 +23,7 @@ $slide-duration: 1.0s;
   pointer-events: none;
 
   transition-duration: $slide-duration;
-  transition-timing-function: $easeOutCubic;
+  transition-timing-function: easings.$easeOutCubic;
 
   &.is-in-view {
     opacity: 1;
@@ -60,7 +62,7 @@ $slide-duration: 1.0s;
   pointer-events: none;
 
   transition-duration: 0.8s;
-  transition-timing-function: $easeInOutCubic;
+  transition-timing-function: easings.$easeInOutCubic;
 
   &.is-in-view {
     opacity: 1;

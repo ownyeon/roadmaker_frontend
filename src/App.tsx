@@ -1,9 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./01_common/styles/index.scss";
+import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
+import Header from "./01_common/components/header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
         <Route path="/login" /> {/* 로그인페이지*/}
@@ -19,7 +22,7 @@ function App() {
         <Route path="/list/rank" /> {/* 여행지 순위 */}
         <Route path="/list/festival" /> {/* 여행지 축제 페이지 */}
         <Route path="/list/festival/new" /> {/* 축제 신규등록 페이지 */}
-        <Route path="/roadtalk" /> {/* 로드톡 리스트 페이지*/}
+        <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
         <Route path="/roadtalk/detail" /> {/* 로드톡 상세 페이지 */}
         <Route path="/mypage" /> {/* 마이페이지 */}
         <Route path="/admin" /> {/* 관리자페이지 */}

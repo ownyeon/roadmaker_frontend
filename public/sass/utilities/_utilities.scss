@@ -1,3 +1,9 @@
+@use '../animations/easings.scss' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/tools' as *;
+
+$_sizesBreaks: xl, lg, md, sm;
+
 @each $name, $color in $colors {
   .bg-#{"" + $name} {
     background-color: var(--color-#{ "" + $name }) !important;

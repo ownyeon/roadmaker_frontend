@@ -1,3 +1,7 @@
+@use '../animations/easings.scss' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/tools' as *;
+
 $_sizesBreaks: xl, lg, md, sm;
 
 $sizes: 0, 4, 5, 10, 15, 20, 24, 28, 30, 35, 40, 45, 50, 60, 70, 80, 90, 120;
