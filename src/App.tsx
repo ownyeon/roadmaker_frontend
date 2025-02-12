@@ -9,7 +9,6 @@ import LogIn from "./03_kimjongbeom/pages/Login";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
-// import LogIn from "./03_kimjongbeom/pages/Login";
 function App() {
   return (
     <BrowserRouter>

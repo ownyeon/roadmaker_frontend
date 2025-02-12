@@ -2,19 +2,11 @@ const blogs = [
   {
     id: 1,
     img: "/img/blog/1.png",
-<<<<<<< Updated upstream
     title: "하늘 다리 코스",
     date: "Jan 06, 2023",
     delayAnimation: "100",
     details: `하늘다리 -> 옹달샘 -> 백두산 -> 속초바다 -> 숙소 -> 맛집`,
     tag: "#바다 #하늘 #다리 #샘 #산 #숙소 #맛집 #바다 #하늘 #다리 #샘 #산 #숙소 #맛집",
-=======
-    title: "10 European ski destinations you should visit this winter",
-    date: "Jan 06, 2023",
-    delayAnimation: "100",
-    details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tag: "art",
->>>>>>> Stashed changes
     tags: ["adventure_travel", "food_drink"],
   },
   {
