@@ -4,6 +4,7 @@ import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import Header from "./01_common/components/header/Header";
 //import Aos from "aos";
 import FindTourList from "./05_choesuji/pages/main";
+import LogIn from "./03_kimjongbeom/pages/Login";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
@@ -14,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
-        <Route path="/login" /> {/* 로그인페이지*/}
+        <Route path="/login" element={<LogIn/>} /> {/* 로그인페이지*/}
         <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
         <Route path="/register" /> {/* 회원가입페이지*/}
         <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
