@@ -19,7 +19,7 @@ const LogIn = () => {
 
                 <div className="row y-gap-20 pt-30">
                   <div className="col-12">
-                    <div className="text-center">or sign in with</div>
+                    <div className="text-center">SNS 간편 로그인</div>
                   </div>
                   <LoginWithSocial />
                   <div className="col-12">
