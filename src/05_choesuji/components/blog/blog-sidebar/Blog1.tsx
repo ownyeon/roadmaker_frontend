@@ -25,8 +25,8 @@ const Blog1 = () => {
 
   const filterOptions = [
     { label: "#전국", value: "#전국" },
-    { label: "#서울", value: "#서울" },
-    { label: "#부산", value: "#부산" },
+    { label: "#서울", value: "#서울" , subOptions: ["#강남", "#강북", "#송파"] },
+    { label: "#부산", value: "#부산" , subOptions: ["#해운대", "#수영", "#남구"]},
     { label: "#대구", value: "#대구" },
     { label: "#인천", value: "#인천" },
     { label: "#광주", value: "#광주" },
@@ -44,6 +44,16 @@ const Blog1 = () => {
     { label: "#제주", value: "#제주" }
     // add more options as needed
   ];
+
+  const handleOptionClick = (value: string) => {
+    if (activeOption === value) {
+      setActiveOption(null); // 이미 선택된 값은 클릭 시 하위 옵션 숨기기
+    } else {
+      setActiveOption(value); // 새로운 값 클릭 시 하위 옵션 보여주기
+    }
+    setFilterOption(value);
+  };
+
 
   return (
     <>
