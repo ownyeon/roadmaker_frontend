@@ -1,0 +1,114 @@
+
+/* or 구분선 */
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.dividerWithText::before,
+.dividerWithText::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid #ccc;
+}
+
+.dividerWithText-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column; /* 세로 정렬을 위해 flex-direction을 column으로 설정 */
+}
+
+.dividerWithText-container span {
+  display: block; /* 줄바꿈을 적용하려면 display: block; */
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0; /* 텍스트 간 간격을 주기 위한 margin */
+}
+
+.dividerWithText-container::before,
+.dividerWithText-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%; /* 좌우 구분선 길이 */
+  border-top: 1px solid #ccc;
+  transform: translateY(-50%); /* 수평 중앙 정렬 */
+}
+
+.dividerWithText-container .dividerText {
+  position: relative;
+  z-index: 1;
+}
+/* ============================== */
+
+/* 안내 글 형식, 링크 형식 */
+  .loginInfo {
+    font-size: 12px; /* 기본보다 작은 크기 */
+    color: #666; /* 기본 텍스트 색상 */
+  }
+  
+  .loginInfo a.infoLink {
+    color: #007bff; /* 파란색 글씨 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-weight: bold; /* 링크를 강조하고 싶다면 */
+  }
+  
+  .loginInfo a.infoLink:hover {
+    text-decoration: underline; /* 호버 시 밑줄을 추가하고 싶다면 */
+  }
+  /* =============================== */
+
+
+/*social-icon*/
+/* 새로운 버튼 스타일 (테두리 제거) */
+.socialButton {
+  border: none; /* 테두리 제거 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: transparent; /* 배경색을 투명하게 설정 */
+}
+
+/* Google과 Naver 버튼용 스타일 */
+.socialButtonOutlineBlue {
+  background-color: transparent;
+  color: #007bff; /* Google/Naver 버튼 텍스트 색상 */
+}
+
+/* Kakao 버튼용 스타일 */
+.socialButtonOutlineRed {
+  background-color: transparent;
+  color: #f44336; /* Kakao 버튼 텍스트 색상 */
+}
+
+/* 이미지 크기 조정 */
+.socialIcon {
+  width: 60px; /* 원하는 크기로 설정 */
+  height: auto;
+  margin-right: 10px; /* 이미지와 텍스트 사이에 간격 추가 */
+}
+  
+/* =============================== */
+
+
+/* 사이트 폰트 */
+/* 작은 폰트 스타일 */
+.font-small {
+  font-size: 12px;  /* 작은 크기 */
+  font-weight: normal;
+  font-family: "Hahmlet-Regular", sans-serif;  /* 작은 글씨용 폰트 */
+}
+
+/* 큰 폰트 스타일 */
+.font-large {
+  font-size: 60px !important;  /* 큰 크기 */
+  font-weight: bold;
+  font-family: "establishRetrosansOTF", sans-serif;  /* 큰 글씨용 폰트 */
+}
+/* ================================ */

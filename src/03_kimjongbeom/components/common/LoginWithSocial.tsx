@@ -1,19 +1,46 @@
+
+import kakaoIcon from '../../assets/linkbuttons/kakao_btn.png';
+import naverIcon from '../../assets/linkbuttons/naver_btn.png';
+import googleIcon from '../../assets/linkbuttons/google_light.png';
+import LoginCSS from '../../css/Login.module.scss';
+
 const LoginWithSocial = () => {
   return (
     <>
-      <div className="col-md-6 col-12">
-        <button className="button col-12 -outline-blue-1 text-blue-1 py-15 rounded-8 ">
-          <i className="icon-apple text-15 mr-10" />
-          Facebook
+    <div className="row justify-content-center"> {/* 가운데 정렬을 위해 row와 justify-content-center 사용 */}
+      {/* Google 버튼 */}
+      <div className="col-md-3 col-6 mb-3"> {/* 각 버튼을 col-md-3로 설정하고 모바일에서 col-6으로 설정 */}
+        <button className={`${LoginCSS.socialButton} ${LoginCSS.socialButtonOutlineBlue} col-12 py-15 rounded-8`}>
+          <img
+            src={googleIcon}
+            alt="Google Icon"
+            className={LoginCSS.socialIcon}  // 이미지 크기 조정
+          />
         </button>
       </div>
 
-      <div className="col-md-6 col-12">
-        <button className="button col-12 -outline-red-1 text-red-1 py-15 rounded-8 ">
-          <i className="icon-apple text-15 mr-10" />
-          Google
+      {/* Naver 버튼 */}
+      <div className="col-md-3 col-6 mb-3"> {/* 각 버튼을 col-md-3로 설정하고 모바일에서 col-6으로 설정 */}
+        <button className={`${LoginCSS.socialButton} ${LoginCSS.socialButtonOutlineBlue} col-12 py-15 rounded-8`}>
+          <img
+            src={naverIcon}
+            alt="Naver Icon"
+            className={LoginCSS.socialIcon}  // 이미지 크기 조정
+          />
         </button>
       </div>
+
+      {/* Kakao 버튼 */}
+      <div className="col-md-3 col-6 mb-3"> {/* 각 버튼을 col-md-3로 설정하고 모바일에서 col-6으로 설정 */}
+        <button className={`${LoginCSS.socialButton} ${LoginCSS.socialButtonOutlineRed} col-12 py-15 rounded-8`}>
+          <img
+            src={kakaoIcon}
+            alt="Kakao Icon"
+            className={LoginCSS.socialIcon}  // 이미지 크기 조정
+          />
+        </button>
+      </div>
+    </div>
     </>
   );
 };

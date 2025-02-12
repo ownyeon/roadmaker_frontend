@@ -1,6 +1,8 @@
 import CallToActions from "../components/common/CallToActions";
 import LoginWithSocial from "../components/common/LoginWithSocial";
 import LoginForm from "../components/common/LoginForm";
+import LoginCSS from "../css/Login.module.scss";
+
 
 
 const LogIn = () => {
@@ -18,14 +20,18 @@ const LogIn = () => {
                 {/* End .Login */}
 
                 <div className="row y-gap-20 pt-30">
-                  <div className="col-12">
-                    <div className="text-center">SNS 간편 로그인</div>
+                <div className="col-12">
+                    <div className={LoginCSS.dividerWithText}>
+                      <div className={LoginCSS.dividerWithTextContainer}>
+                        <span className={LoginCSS.dividerText}>&nbsp;SNS 간편 로그인&nbsp;</span>
+                      </div>
+                    </div>
                   </div>
                   <LoginWithSocial />
                   <div className="col-12">
                     <div className="text-center px-30">
-                      By creating an account, you agree to our Terms of Service
-                      and Privacy Statement.
+                      <div className={LoginCSS.loginInfo}>각 소셜 로그인 계정과 일반 로그인 계정은</div>
+                      <div className={LoginCSS.loginInfo}> 서로 연동되지 않습니다.</div>
                     </div>
                   </div>
                 </div>
