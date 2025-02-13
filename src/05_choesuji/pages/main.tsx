@@ -1,6 +1,7 @@
 import React from "react";
 import CallToActions from "../components/common/CallToActions";
 import LocationTopBar from "../components/common/LocationTopBar";
+import Blog1 from "../components/blog/blog-sidebar/Blog1 copy"
 
 
 
@@ -32,7 +33,7 @@ const FindTourList: React.FC= () => {
           </div>
         </div>
       </section>
-
+      <Blog1/>
       <CallToActions />
       {/* End Call To Actions Section */}
 
