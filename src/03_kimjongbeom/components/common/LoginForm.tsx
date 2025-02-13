@@ -58,7 +58,7 @@ const LoginForm = () => {
         </div>
         <div className={LoginCSS.loginInfo}>
           아직 회원이 아니세요?&nbsp;{" "}
-          <Link to="/signup" className={LoginCSS.infoLink}>
+          <Link to="/register" className={LoginCSS.infoLink}>
             이메일회원가입
           </Link>
         </div>
