@@ -1,4 +1,4 @@
-const CallToActions = () => {
+const CallToActions = () => {  //footer
   return (
     <section className="layout-pt-md layout-pb-md bg-dark-2">
       <div className="container">
