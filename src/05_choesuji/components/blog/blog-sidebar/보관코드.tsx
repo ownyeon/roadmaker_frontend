@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BlogPagination from "./BlogPagination";
+  
   // 주요 지역과 해당하는 하위 지역 데이터
   const subRegions: { [key: string]: string[] } = {
     "#전국": [],
@@ -84,8 +84,6 @@ const RegionSelector: React.FC = () => {
   const [subFilterOptions, setSubFilterOptions] = useState<string[]>([]); // 하위지역
   const [selectedTheme, setSelectedTheme] = useState<string[]>([]); // 테마다중선택
   const [selectedSubRegion, setSelectedSubRegion] = useState<string[]>([]); // 다중하위지역
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); //선택된 키워드 저장하는곳
-
 
 
   // 주요 지역 선택 시 하위 지역 변경 또는 선택 해제
@@ -94,26 +92,20 @@ const RegionSelector: React.FC = () => {
       setSelectedRegion(null);
       setSubFilterOptions([]); // 하위 지역도 사라지게 처리
       setSelectedTheme([]); // 테마 초기화
-      setSelectedKeywords((prev) => prev.filter((item) => !item.includes(region))); 
-      //키워드에서 삭제
     } else {
       setSelectedRegion(region);
       setSubFilterOptions(subRegions[region] || []);
       setSelectedSubRegion([]); // 시도 바꿀때 시군구 초기화
       // 지역 선택 시 해당 지역에 기본적으로 설정된 테마 추가
       setSelectedTheme(regionThemes1[region] || []);
-      setSelectedKeywords([region]);  //해당지역 키워드로 추가
     }
   };
 
 
   // 하위 지역 선택 시 중복 가능, 전체 버튼 관련
   const handleSubRegionClick = (subRegion: string) => {
-    let updatedKeywords = [...selectedKeywords];
     if (subRegion === '#전체') {
       setSelectedSubRegion([subRegion]);
-      updatedKeywords = updatedKeywords.filter(item => !item.includes('#전체'));
-      updatedKeywords.push(subRegion);  //전체를 키워드로 추가가
     } else {
       setSelectedSubRegion((prevState) => {
         if (prevState.includes('#전체')) {
@@ -127,20 +119,14 @@ const RegionSelector: React.FC = () => {
         }
       });
     }
-    setSelectedKeywords(updatedKeywords);
-    //하위지역에 대한 키워드 추가/삭제
   };
-
 
   // 테마 중복 선택 가능하도록
   const handleThemeChange = (theme: string) => {
-    let updatedKeywords = [...selectedKeywords];
     if (selectedTheme.includes(theme)) {
       setSelectedTheme(selectedTheme.filter((item) => item !== theme));
-      //테마 키워드 삭제      
     } else {
       setSelectedTheme([...selectedTheme, theme]);
-      updatedKeywords.push(theme);  //새로운 테마 키워드로 추가
     }
   };
 
@@ -244,27 +230,8 @@ const RegionSelector: React.FC = () => {
           </div>
         </div>
       )}
-      {/* 선택된 키워드들 나열하려고 만들어봄 */}
-      <div>
-        <p> 내가 선택한 태그들을 여기에 띄울지? </p>
-        <h2>선택:{selectedKeywords.join("")}</h2>
-      </div>
-       <section
-      data-aos="fade"
-      className="d-flex items-center py-15 border-top-light"
-    >
-      <div>
-        <p>내가 선택한 태그들을 여기에 띄울지2?</p>
-        <h3>그럼 여기서부턴 이미지 띄우려는데 용어 명칭 알아보기 </h3>
-      </div>
-
-    </section>
-
-
-    <BlogPagination/> 
     </div>
   );
-
 };
 
 export default RegionSelector;
