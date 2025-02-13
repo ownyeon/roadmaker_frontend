@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as variables ;
+@use "../abstracts/variables" as variables;
 
 :root {
   --swiper-theme-color: var(--color-blue-1);
@@ -8,20 +8,20 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
-} 
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  width: 100% !important;
+}
 
 body {
-  margin-top: 80px;
-  padding: 0;
+  display: block;
+  margin-top: 150px;
+  padding: 10px;
   font-family: var(--font-primary);
-  width: 100%;
   background-color: white;
   color: var(--color-dark-1);
   font-size: variables.$font-size;
   line-height: 1.875;
-  display: flex;
-  justify-content: center; /* 수평 중앙 정렬 */
-  align-items: center; /* 수직 중앙 정렬 */
 }
 .cursor-pointer {
   cursor: pointer;

@@ -27,7 +27,6 @@ const FindTourList: React.FC= () => {
                 <p className=" sectionTitle__text mt-5 sm:mt-0">
                   다채로운 즐거움이 가득한 로드메이커의 여행지 찾기!
                 </p>
-                <Blog1 />
               </div>
             </div>
           </div>

@@ -1,0 +1,54 @@
+.tag {
+  cursor: pointer;
+  padding: 2%;
+  & div {
+    border-radius: 10px;
+    padding: 10%;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    margin: 1%;
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      color 0.15s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.active {
+  background-color: black;
+  color: white;
+}
+.actionBtn {
+  & div {
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 4%;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    padding: 4% 2% 2% 2%;
+    transition: transform 0.15s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.aIRoadMakerCity {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  white-space: nowrap;
+  width: 65.5%;
+  @media (max-width: 1080px) {
+    width: 90%;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  .tag {
+    @media (max-width: 1080px) {
+      font-size: 14px !important;
+    }
+    @media (max-width: 480px) {
+      font-size: 12px !important;
+    }
+  }
+}

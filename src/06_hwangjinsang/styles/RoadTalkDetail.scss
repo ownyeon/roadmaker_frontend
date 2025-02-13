@@ -1,0 +1,119 @@
+.roadTalkDetailContainer {
+  max-width: 1200px !important;
+  width: 100%;
+
+  .kakaoMap {
+    max-width: 90%;
+    height: 600px;
+    @media (max-width: 576px) {
+      height: 450px;
+      width: 100%;
+    }
+    #map {
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .travelCarousel {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .embla {
+      border-radius: 5px;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+  .travelDetail {
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: auto;
+    --slide-height: 24rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+    @media (max-width: 1024px) {
+      max-width: 90%; // 화면이 1024px 이하일 때 크기를 줄임
+      --slide-height: 26rem;
+      --slide-spacing: 0.8rem; // 슬라이드 간격 줄이기
+    }
+
+    @media (max-width: 768px) {
+      max-width: 90%; // 화면이 768px 이하일 때 크기를 더 줄임
+      --slide-height: 28rem;
+      --slide-spacing: 0.5rem; // 슬라이드 간격 더 줄이기
+    }
+
+    @media (max-width: 480px) {
+      max-width: 90%; // 화면이 480px 이하일 때 거의 전체 화면 크기로 설정
+      --slide-height: 30rem;
+      --slide-spacing: 0.3rem; // 슬라이드 간격 작게 설정
+    }
+  }
+  .comment {
+    max-width: 90%;
+    border-radius: 5px;
+    padding: 2% 3%;
+    background-color: #efefef;
+    height: 24rem;
+    @media (max-width: 1024px) {
+      height: 20rem;
+    }
+
+    @media (max-width: 768px) {
+      height: 16rem;
+    }
+
+    @media (max-width: 480px) {
+      height: 16rem;
+    }
+    .commentBox {
+      padding: 2%;
+      background-color: #fff;
+      width: 100%;
+      height: 80%;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      @media (max-width: 1024px) {
+        height: 74%;
+      }
+  
+      @media (max-width: 768px) {
+        height: 68%;
+      }
+  
+      @media (max-width: 480px) {
+        height: 68%;
+      }
+    }
+    .btn{
+      border-radius: 5px;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+  .commentList{
+    max-width: 90%;
+  }
+  .titleFont {
+    font-family: "establishRetrosansOTF", sans-serif;
+    @media (max-width: 992px) {
+      font-size: 24px !important;
+    }
+    @media (max-width: 768px) {
+      font-size: 24px !important;
+    }
+  }
+  .subFont {
+    font-family: "Hahmlet-Regular", sans-serif;
+    @media (max-width: 992px) {
+      font-size: 16px !important;
+    }
+    @media (max-width: 768px) {
+      font-size: 16px !important;
+    }
+  }
+  .softColor {
+    color: #8a8e91;
+  }
+}
