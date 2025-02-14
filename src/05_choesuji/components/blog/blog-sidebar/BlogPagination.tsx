@@ -11,6 +11,7 @@ const BlogPagination = () => {
     const className = `size-40 flex-center rounded-full cursor-pointer ${
       isActive ? "bg-dark-1 text-white" : ""
     }`;
+    
     return (
       <div key={pageNumber} className="col-auto">
         <div className={className} onClick={() => handlePageClick(pageNumber)}>

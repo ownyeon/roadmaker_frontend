@@ -1,10 +1,11 @@
-@use '../animations/easings.scss' as *;
-@use '../abstracts/variables' as *;
-@use '../abstracts/tools' as *;
+@use "../animations/easings.scss" as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/tools" as *;
 
 $_sizesBreaks: xl, lg, md, sm;
 
-$sizes: 0, 4, 5, 10, 15, 20, 24, 28, 30, 35, 40, 45, 50, 60, 70, 80, 90, 120;
+$sizes: 0, 4, 5, 10, 15, 20, 24, 28, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100,
+  120;
 
 @each $size in $sizes {
   .py-#{$size} {
@@ -102,24 +103,24 @@ $gap-sizes: 0, 5, 10, 15, 20, 30, 40, 50, 60, 80;
 @each $gap in $gap-sizes {
   .x-gap {
     &-#{$gap} {
-      margin-left: -#{ calc($gap / 2) }px;
-      margin-right: -#{ calc($gap / 2) }px;
+      margin-left: -#{calc($gap / 2)}px;
+      margin-right: -#{calc($gap / 2)}px;
 
       > * {
-        padding-left: #{ calc($gap / 2) }px;
-        padding-right: #{ calc($gap / 2) }px;
+        padding-left: #{calc($gap / 2)}px;
+        padding-right: #{calc($gap / 2)}px;
       }
     }
   }
 
   .y-gap {
     &-#{$gap} {
-      margin-top: -#{ calc($gap / 2) }px;
-      margin-bottom: -#{ calc($gap / 2) }px;
+      margin-top: -#{calc($gap / 2)}px;
+      margin-bottom: -#{calc($gap / 2)}px;
 
       > * {
-        padding-top: #{ calc($gap / 2) }px;
-        padding-bottom: #{ calc($gap / 2) }px;
+        padding-top: #{calc($gap / 2)}px;
+        padding-bottom: #{calc($gap / 2)}px;
       }
     }
   }
@@ -130,24 +131,24 @@ $gap-sizes: 0, 5, 10, 15, 20, 30, 40, 50, 60, 80;
     @each $gap in $gap-sizes {
       .#{$media}\:x-gap {
         &-#{$gap} {
-          margin-left: -#{ calc($gap / 2) }px;
-          margin-right: -#{ calc($gap / 2) }px;
+          margin-left: -#{calc($gap / 2)}px;
+          margin-right: -#{calc($gap / 2)}px;
 
           > * {
-            padding-left: #{ calc($gap / 2) }px;
-            padding-right: #{ calc($gap / 2) }px;
+            padding-left: #{calc($gap / 2)}px;
+            padding-right: #{calc($gap / 2)}px;
           }
         }
       }
 
       .#{$media}\:y-gap {
         &-#{$gap} {
-          margin-top: -#{ calc($gap / 2) }px;
-          margin-bottom: -#{ calc($gap / 2) }px;
+          margin-top: -#{calc($gap / 2)}px;
+          margin-bottom: -#{calc($gap / 2)}px;
 
           > * {
-            padding-top: #{ calc($gap / 2) }px;
-            padding-bottom: #{ calc($gap / 2) }px;
+            padding-top: #{calc($gap / 2)}px;
+            padding-bottom: #{calc($gap / 2)}px;
           }
         }
       }

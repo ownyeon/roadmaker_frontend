@@ -1,0 +1,67 @@
+
+.aIRoadMaker {
+  padding: 10px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+  .container {
+    height: 60rem;
+    border-radius: 5px;
+    background-image: url("../assets/imgs/AI_Thumbnail.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+
+    .tagCol {
+      @media (max-width: 767px) {
+        display: none;
+      }
+      .tag {
+        box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        color: black;
+        background-color: #fff;
+        padding: 3% 5% 2% 5%;
+        @media (max-width: 991px) {
+          font-size: 20px;
+        }
+      }
+    }
+    .tagBtn {
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      color: black;
+      background-color: #fff;
+      padding: 3% 5% 2% 5%;
+      @media (max-width: 767px) {
+        font-size: 24px !important;
+      }
+    }
+    .title {
+      @media (max-width: 991px) {
+        font-size: 30px !important;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 24px !important;
+      }
+
+      @media (max-width: 480px) {
+      }
+    }
+    .sub {
+      @media (max-width: 991px) {
+        font-size: 20px !important;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 18px !important;
+      }
+
+      @media (max-width: 480px) {
+      }
+    }
+  }
+}

@@ -3,23 +3,34 @@ import Header from "./01_common/components/header/Header";
 import "./01_common/styles/index.scss";
 import Rank from "./04_shindonggwon/pages/Rank";
 import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
+import ScrollTopBehaviour from "./01_common/components/common/social/ScrollTopBehaviour";
 //import Aos from "aos";
 import FindTourList from "./05_choesuji/pages/main";
 import LogIn from "./03_kimjongbeom/pages/Login";
+import RoadTalkDetail from "./06_hwangjinsang/pages/RoadTalkDetail";
+import AIRoadMaker from "./06_hwangjinsang/pages/airoadmaker/AIRoadMaker";
+import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
+import AIRoadMakerCounty from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCounty";
+import AIRoadMakerCity from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCity";
+import SignUp from "./03_kimjongbeom/pages/SignUp";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
+
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <ScrollTopBehaviour/>
       <Routes>
         <Route path="/" /> {/* 메인페이지*/}
         <Route path="/login" element={<LogIn/>} /> {/* 로그인페이지*/}
         <Route path="/login/recovery" /> {/* 비밀번호 찾기 페이지*/}
-        <Route path="/register" /> {/* 회원가입페이지*/}
-        <Route path="/airoadmaker" /> {/* AI로드메이커 메인*/}
-        <Route path="/airoadmaker/generate" /> {/* AI로드메이커 생성*/}
+        <Route path="/register" element={<SignUp />}/> {/* 회원가입페이지*/}
+        <Route path="/airoadmaker" element={<AIRoadMaker/>}/> {/* AI로드메이커 메인*/}
+        <Route path="/airoadmaker/start" element={<AIRoadMakerStart/>}/> {/* AI로드메이커 시작*/}
+        <Route path="/airoadmaker/county" element={<AIRoadMakerCounty/>}/> {/* AI로드메이커 지역*/}
+        <Route path="/airoadmaker/city" element={<AIRoadMakerCity/>}/> {/* AI로드메이커 도시*/}
         <Route path="/airoadmaker/detail" /> {/* AI로드메이커 상세페이지*/}
         <Route path="/list" element={<FindTourList/>}/> {/* 여행지 리스트 */}
         <Route path="/list/detail" /> {/* 여행지 상세페이지*/}
@@ -29,7 +40,7 @@ function App() {
         <Route path="/list/festival" /> {/* 여행지 축제 페이지 */}
         <Route path="/list/festival/new" /> {/* 축제 신규등록 페이지 */}
         <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
-        <Route path="/roadtalk/:id" /> {/* 로드톡 상세 페이지 */}
+        <Route path="/roadtalk/:id" element={<RoadTalkDetail/>}/> {/* 로드톡 상세 페이지 */}
         <Route path="/mypage" /> {/* 마이페이지 */}
         <Route path="/admin" /> {/* 관리자페이지 */}
       </Routes>

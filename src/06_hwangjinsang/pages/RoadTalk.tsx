@@ -1,27 +1,22 @@
 import RoadTalkComponent from "../components/roadtalk/RoadTalkComponent";
-import RoadTalkSidebar from "../components/roadtalk/roadtalk-sidebar";
+import RoadTalkSidebar from "../components/roadtalk/RoadTalkSidebar";
 import "../styles/RoadTalk.scss";
 const RoadTalk = () => {
   return (
     <>
-      <section className="layout-pt-md layout-pb-lg">
-        <div className="container">
-          <div className="row y-gap-30 justify-between">
-            <div className="col-xl-7">
-              <div className="row y-gap-30 roadTalkList">
-                <RoadTalkComponent />
-              </div>
-            </div>
-            {/* End .col */}
-            <div className="col-xl-4 roadTalkSidebar">
-              <RoadTalkSidebar />
-            </div>
-            {/* End .col */}
+      <div className="roadTalkContainer">
+        <div className="row">
+          <div className="col-xl-4 left">
+            <RoadTalkSidebar />
           </div>
-          {/* End .row */}
+          <div className="col-xl-8">
+            <RoadTalkComponent />
+          </div>
+          <div className="col-xl-4 right">
+            <RoadTalkSidebar />
+          </div>
         </div>
-        {/* End .container */}
-      </section>
+      </div>
     </>
   );
 };
