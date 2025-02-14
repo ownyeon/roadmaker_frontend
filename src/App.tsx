@@ -7,14 +7,16 @@ import ScrollTopBehaviour from "./01_common/components/common/social/ScrollTopBe
 //import Aos from "aos";
 import FindTourList from "./05_choesuji/pages/main";
 import LogIn from "./03_kimjongbeom/pages/Login";
-import RoadTalkDetail from "./06_hwangjinsang/pages/RoadTalkDetail";
+import RoadTalkDetail from "./06_hwangjinsang/styles/RoadTalkDetail";
 import AIRoadMaker from "./06_hwangjinsang/pages/airoadmaker/AIRoadMaker";
 import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
 import AIRoadMakerCounty from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCounty";
 import AIRoadMakerCity from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCity";
 import SignUp from "./03_kimjongbeom/pages/SignUp";
+import AIRoadMakerCalendar from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCalendar";
+import AIRoadMakerKeyword from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerKeyword";
+import AIRoadMakerDetail from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerDetail";
 import Mypage from "./02_kimseoyeon/pages/mypages/Mypage";
-
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
@@ -33,7 +35,9 @@ function App() {
         <Route path="/airoadmaker/start" element={<AIRoadMakerStart/>}/> {/* AI로드메이커 시작*/}
         <Route path="/airoadmaker/county" element={<AIRoadMakerCounty/>}/> {/* AI로드메이커 지역*/}
         <Route path="/airoadmaker/city" element={<AIRoadMakerCity/>}/> {/* AI로드메이커 도시*/}
-        <Route path="/airoadmaker/detail" /> {/* AI로드메이커 상세페이지*/}
+        <Route path="/airoadmaker/calendar" element={<AIRoadMakerCalendar/>}/> {/* AI로드메이커 캘린더*/}
+        <Route path="/airoadmaker/keyword" element={<AIRoadMakerKeyword/>}/> {/* AI로드메이커 캘린더*/}
+        <Route path="/airoadmaker/detail" element={<AIRoadMakerDetail/>}/> {/* AI로드메이커 상세페이지*/}
         <Route path="/list" element={<FindTourList/>}/> {/* 여행지 리스트 */}
         <Route path="/list/detail" /> {/* 여행지 상세페이지*/}
         <Route path="/list/new" /> {/* 여행지 신규 등록*/}

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../../styles/AIRoadMakerCity.scss";
+import "../../styles/AIRoadMakerPages.scss";
 import "../../styles/AIRoadMakerStart.scss";
 import "../../styles/common.scss";
 
@@ -91,7 +91,7 @@ const AIRoadMakerCity = () => {
           <div onClick={()=>{navigate("/airoadmaker/county")}}>이전</div>
         </div>
         <div className="col-6 titleFont actionBtn">
-          <div onClick={()=>{navigate("/airoadmaker/schedule")}}>다음</div>
+          <div onClick={()=>{navigate("/airoadmaker/calendar")}}>다음</div>
         </div>
       </div>
     </div>
