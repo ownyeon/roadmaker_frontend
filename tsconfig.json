@@ -5,11 +5,13 @@
     "baseUrl": "./",
     "paths": {
       "@/*":["src/*"] // '@'를 'src'로 맵핑
-    }
+    },
+    "types": ["kakao.maps.d.ts"]
   },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+  
 }
