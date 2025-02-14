@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../../styles/AIRoadMakerCity.scss";
+import "../../styles/AIRoadMakerPages.scss";
 import "../../styles/AIRoadMakerStart.scss";
 import "../../styles/common.scss";
 

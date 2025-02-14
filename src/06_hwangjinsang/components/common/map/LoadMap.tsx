@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 declare global {
   interface Window {
@@ -7,13 +7,21 @@ declare global {
   }
 }
 
-function Map() {
+const Map = (props: { longitude: number; latitude: number }) => {
+  const [latLong, setLatLong] = useState<{
+    longitude: number;
+    latitude: number;
+  }>({ longitude: 0, latitude: 0 });
   const mapRef = useRef<HTMLElement | null>(null);
 
+  useEffect(() => {
+    setLatLong({ longitude: props.longitude, latitude: props.latitude });
+  }, [props.longitude, props.latitude]);
+
   const initMap = () => {
-    const container = document.getElementById('map');
+    const container = document.getElementById("map");
     const options = {
-      center: new window.kakao.maps.LatLng(35.683034, 127.602435),
+      center: new window.kakao.maps.LatLng(latLong.longitude, latLong.latitude),
       level: 13,
     };
 
@@ -23,10 +31,12 @@ function Map() {
   };
 
   useEffect(() => {
-    window.kakao.maps.load(() => initMap());
-  }, [mapRef]);
+    if (window.kakao) {
+      window.kakao.maps.load(() => initMap());
+    }
+  }, [latLong]);
 
   return <div id="map"></div>;
-}
+};
 
 export default Map;
