@@ -16,25 +16,25 @@ const Sidebar = () => {
     },
     {
       id: 2,
-      icon: "",
+      icon: "/src/02_kimseoyeon/assets/images/book.svg",
       name: "관심 여행지",
       routePath: "/dashboard/db-booking",
     },
     {
       id: 3,
-      icon: "",
+      icon: "/src/02_kimseoyeon/assets/images/activity.svg",
       name: "내 활동",
       routePath: "/dashboard/db-wishlist",
     },
     {
       id: 4,
-      icon: "",
+      icon: "/src/02_kimseoyeon/assets/images/info.svg",
       name: " 내 정보",
-      routePath: "/dashboard/db-settings",
+      routePath: "/mypage/profile",
     },
     {
       id: 5,
-      icon: "",
+      icon: "/src/02_kimseoyeon/assets/images/withdraw.svg",
       name: "회원 탈퇴",
       routePath: "/login",
     },
@@ -43,17 +43,17 @@ const Sidebar = () => {
     <div className="sidebar -dashboard">
       {sidebarContent.map((item) => (
         <div className="sidebar__item" key={item.id}>
-          <div 
+          <div style={{display:"flex", alignSelf:"center"}}
             className={`${
               isActiveLink(item.routePath, pathname) ? "-is-active" : ""
             } sidebar__button `}
           >
             <Link
               to={item.routePath}
-              className="d-flex items-center text-15 lh-1 fw-500"
+              className="d-flex items-center ustify-content: center text-15 lh-1 fw-500"
             >
               <img src={item.icon} alt="image" className="mr-15" style={{width:"30px"}} />
-              <span className="titleFont text-24">{item.name}</span>
+              <span className="titleFont text-24" style={{ marginTop: "6px" }}>{item.name}</span>
             </Link>
           </div>
         </div>

@@ -47,7 +47,7 @@ function App() {
         <Route path="/list/festival/new" /> {/* 축제 신규등록 페이지 */}
         <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
         <Route path="/roadtalk/:id" element={<RoadTalkDetail/>}/> {/* 로드톡 상세 페이지 */}
-        <Route path="/mypage" element={< Mypage/>}/> {/* 마이페이지 */}
+        <Route path="/mypage/*" element={< Mypage/>}/> {/* 마이페이지 */}
         <Route path="/admin" /> {/* 관리자페이지 */}
       </Routes>
     </BrowserRouter>

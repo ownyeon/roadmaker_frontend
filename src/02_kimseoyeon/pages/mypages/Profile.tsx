@@ -1,50 +1,69 @@
-// import "../../styles/mypage.scss";  // ✅ SCSS 파일을 적용!
-import "../../../02_kimseoyeon/styles/mypage.scss"
-import "../../styles/font.scss"
+import "../../../02_kimseoyeon/styles/mypage.scss";
+import "../../styles/font.scss";
 
 const Profile = () => {
   return (
-    <div className="mypage-content">
-      {/* <h1 className="profile-title">내 정보</h1>
-      <p className="profile-description">계정 정보를 수정할 수 있습니다.</p>
+    <div className="dashboard">
+      {/* 사이드바는 제외된 상태 */}
+      <div className="dashboard__main">
+        <div className="dashboard__content">
+          <h1 className="text-30 lh-14 fw-600">내 정보</h1>
+          <p className="text-15 text-light-1">
+            계정 정보를 수정할 수 있습니다.
+          </p>
 
-      <form className="profile-settings">
-        <div className="form-group">
-          <label>Business Name</label>
-          <input type="text" name="businessName" />
-        </div>
+          <div className="py-30 px-30 rounded-4 bg-white shadow-3">
+            <form>
+              <div className="row y-gap-20">
+                <div className="col-12">
+                  <div className="form-input">
+                    <input type="text" required />
+                    <label className="lh-1 text-16 text-light-1">
+                      사용자 이름
+                    </label>
+                  </div>
+                </div>
 
-        <div className="form-group">
-          <label>User Name</label>
-          <input type="text" name="userName" />
-        </div>
+                <div className="col-md-6">
+                  <div className="form-input">
+                    <input type="text" required />
+                    <label className="lh-1 text-16 text-light-1">
+                      이메일
+                    </label>
+                  </div>
+                </div>
 
-        <div className="form-grid">
-          <div className="form-group">
-            <label>First Name</label>
-            <input type="text" name="firstName" />
+                <div className="col-md-6">
+                  <div className="form-input">
+                    <input type="text" required />
+                    <label className="lh-1 text-16 text-light-1">
+                      전화번호
+                    </label>
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <div className="form-input">
+                    <textarea required rows={5}></textarea>
+                    <label className="lh-1 text-16 text-light-1">
+                      자기소개
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div className="d-inline-block pt-30">
+                <button
+                  type="submit"
+                  className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
+                >
+                  저장하기
+                </button>
+              </div>
+            </form>
           </div>
-
-          <div className="form-group">
-            <label>Last Name</label>
-            <input type="text" name="lastName" />
-          </div>
         </div>
-
-        <div className="form-grid">
-          <div className="form-group">
-            <label>Email</label>
-            <input type="email" name="email" />
-          </div>
-
-          <div className="form-group">
-            <label>Phone Number</label>
-            <input type="text" name="phoneNumber" />
-          </div>
-        </div>
-
-        <button type="submit" className="save-button">Save Changes</button>
-      </form> */}
+      </div>
     </div>
   );
 };
