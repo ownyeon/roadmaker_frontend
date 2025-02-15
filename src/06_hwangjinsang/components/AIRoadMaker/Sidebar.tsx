@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Summary from "./Summary";
 import Schedule from "./Schedule";
+import Summary from "./Summary";
 
 const Sidebar = () => {
   const [componentName, setComponentName] = useState<string>("Summary");
@@ -34,6 +34,7 @@ const Sidebar = () => {
         <div className="col-6 subFont menu">일정 상세보기</div>
       </div>
       <SelectedComponent />
+      
     </div>
   );
 };

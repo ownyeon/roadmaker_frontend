@@ -18,13 +18,12 @@ const Schedule = () => {
   };
   return (
     <>
-    
-      <div className="row subFont mt-20">
+      <div className="row subFont mt-10">
         <div className="col-12 d-flex justify-between mb-10">
           <div className="daySelector" onClick={childClickHandle}>
-            <span className="mr-10 pointer day titleFont">Day 1</span>
-            <span className="mr-10 pointer day">Day 2</span>
-            <span className="mr-10 pointer day">Day 3</span>
+            <span className="mr-20 pointer day titleFont">Day 1</span>
+            <span className="mr-20 pointer day">Day 2</span>
+            <span className="mr-20 pointer day">Day 3</span>
           </div>
         </div>
         <hr />
