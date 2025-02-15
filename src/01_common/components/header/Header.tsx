@@ -5,17 +5,20 @@ import MobileMenu from "./MobileMenu";
 import "../../styles/Header.scss";
 import HeaderSearch from "./HeaderSearch";
 
-
 const Header = () => {
   const { pathname } = useLocation();
   const [navbar, setNavbar] = useState(false);
-
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const changeBackground = () => {
     if (window.scrollY >= 10) {
       setNavbar(true);
     } else {
       setNavbar(false);
     }
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // 사이드바 토글
   };
 
   useEffect(() => {
@@ -51,16 +54,52 @@ const Header = () => {
             {/* End col */}
             <div className="col-auto">
               <div className="d-flex items-center">
-                <HeaderSearch/>
+                <HeaderSearch />
                 {/* Start btn-group */}
-                <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none " style={{marginTop:"15px"}}>
-                  <Link to="/login" className={pathname === "/login" ? "current mr-20" : "mr-20"}>로그인</Link>
-                  <Link to="/register" className={pathname === "/register" ? "current mr-20" : "mr-20"}>회원가입</Link>
+                <div
+                  className="d-flex items-center ml-20 is-menu-opened-hide md:d-none "
+                  style={{ marginTop: "15px" }}
+                >
+                  <Link
+                    to="/login"
+                    className={
+                      pathname === "/login" ? "current mr-20" : "mr-20"
+                    }
+                  >
+                    로그인
+                  </Link>
+                  <Link
+                    to="/register"
+                    className={
+                      pathname === "/register" ? "current mr-20" : "mr-20"
+                    }
+                  >
+                    회원가입
+                  </Link>
+                  <Link
+                    to="/mypage"
+                    className={
+                      pathname === "/mypage" ? "current mr-20" : "mr-20"
+                    }
+                  >
+                    마이페이지
+                  </Link>
+                  <Link
+                    to="/admin"
+                    className={
+                      pathname === "/admin" ? "current mr-20" : "mr-20"
+                    }
+                  >
+                    관리자페이지
+                  </Link>
                 </div>
                 {/* End btn-group */}
 
                 {/* Start mobile menu icon */}
-                <div className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1" style={{marginTop:"15px"}}>
+                <div
+                  className="d-none xl:d-flex x-gap-20 items-center pl-30 text-dark-1"
+                  style={{ marginTop: "15px" }}
+                >
                   <div>
                     <Link
                       to="/login"
@@ -73,14 +112,17 @@ const Header = () => {
                       data-bs-toggle="offcanvas"
                       aria-controls="mobile-sidebar_menu"
                       data-bs-target="#mobile-sidebar_menu"
+                      onClick={toggleSidebar}
                     />
 
                     <div
-                      className="offcanvas offcanvas-start  mobile_menu-contnet"
+                      className={`offcanvas offcanvas-start mobile_menu-content ${
+                        isSidebarOpen ? "show" : ""
+                      }`}
                       tabIndex={-1}
                       id="mobile-sidebar_menu"
                       aria-labelledby="offcanvasMenuLabel"
-                      data-bs-scroll="true"
+                      data-bs-scroll={isSidebarOpen ? "true" : "false"}
                     >
                       <MobileMenu />
                       {/* End MobileMenu */}

@@ -7,7 +7,7 @@ import ScrollTopBehaviour from "./01_common/components/common/social/ScrollTopBe
 //import Aos from "aos";
 import FindTourList from "./05_choesuji/pages/main";
 import LogIn from "./03_kimjongbeom/pages/Login";
-import RoadTalkDetail from "./06_hwangjinsang/styles/RoadTalkDetail";
+import RoadTalkDetail from "./06_hwangjinsang/pages/RoadTalkDetail";
 import AIRoadMaker from "./06_hwangjinsang/pages/airoadmaker/AIRoadMaker";
 import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
 import AIRoadMakerCounty from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCounty";
