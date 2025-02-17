@@ -3,6 +3,9 @@
     "allowJs": true,
     "noImplicitAny": false,
     "baseUrl": "./",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "strict": true,
     "paths": {
       "@/*":["src/*"] // '@'를 'src'로 맵핑
     },

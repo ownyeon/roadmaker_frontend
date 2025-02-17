@@ -1166,6 +1166,7 @@ $_displays: none, inline-block, block, flex;
   transition: all 0.2s $easeOutQuart;
   display: flex;
 
+  
   label {
     position: absolute;
     top: 0;
@@ -1197,6 +1198,27 @@ $_displays: none, inline-block, block, flex;
     transform: translateY(-10px);
   }
 }
+
+.form-input1 {
+  position: relative;
+  transition: all 0.2s $easeOutQuart;
+  display: flex;
+  width: 100%;
+  input,
+  textarea {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0 15px;
+    width: 100%;
+    min-height: 40px;
+    transition: all 0.2s $easeOutQuart;
+
+    &:focus {
+      border: 2px solid #051036 !important;
+    }
+  }
+}
+
 
 .sidebar.-blog {
   > * + * {

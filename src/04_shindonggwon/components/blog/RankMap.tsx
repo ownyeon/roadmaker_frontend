@@ -1,7 +1,6 @@
-import { Map, MapMarker } from "react-kakao-maps-sdk";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-// 태그 배열 (위도, 경도 정보 포함)
+// 태그 데이터
 const tags = [
   { label: "#서울", value: "#서울", lat: 37.5665, lng: 126.978 },
   { label: "#부산", value: "#부산", lat: 35.1796, lng: 129.0756 },
@@ -22,39 +21,36 @@ const tags = [
   { label: "#제주", value: "#제주", lat: 33.4996, lng: 126.5312 },
 ];
 
-const RankMap = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+// onMapClick prop의 타입을 정의합니다.
+interface RankMapProps {
+  onMapClick: (value: string) => void; // onMapClick의 타입을 정의
+}
 
+const RankMap = ({ onMapClick }: RankMapProps) => { // onMapClick prop에 대한 타입 지정
   useEffect(() => {
-    if (window.kakao && window.kakao.maps) {
-      setIsLoaded(true);
-    }
-  }, []);
+    window.kakao.maps.load(() => {
+      const mapContainer = document.getElementById("map");
+      const mapOption = {
+        center: new window.kakao.maps.LatLng(36.5, 127.5),
+        level: 13,
+      };
+      const map = new window.kakao.maps.Map(mapContainer, mapOption);
 
-  const position = { lat: 36.5, lng: 127.5 }; // 대한민국 중심 위치
+      tags.forEach((tag) => {
+        const marker = new window.kakao.maps.Marker({
+          position: new window.kakao.maps.LatLng(tag.lat, tag.lng),
+          map: map,
+        });
 
-  return (
-    <div style={{ width: "100%", height: "500px" }}>
-      {isLoaded ? (
-        <Map
-          center={position}
-          style={{ width: "100%", height: "100%" }}
-          level={13} // 줌 레벨
-        >
-          {/* 태그 목록에 있는 마커들 */}
-          {tags.map((tag) => (
-            <MapMarker
-              key={tag.value}
-              position={{ lat: tag.lat, lng: tag.lng }}
-              title={tag.label} // 마커에 표시할 텍스트 제거 (필요 없다면 이 부분 삭제)
-            />
-          ))}
-        </Map>
-      ) : (
-        <p>지도를 불러오는 중...</p>
-      )}
-    </div>
-  );
+        // 마커 클릭 시 해당 태그 추가
+        window.kakao.maps.event.addListener(marker, "click", () => {
+          onMapClick(tag.value); // 클릭 시 onMapClick 호출
+        });
+      });
+    });
+  }, [onMapClick]);
+
+  return <div id="map" style={{ width: "100%", height: "500px" }} />;
 };
 
 export default RankMap;

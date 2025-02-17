@@ -6,7 +6,7 @@ const blogs = [
     date: "Jan 06, 2023",
     delayAnimation: "100",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#맛집", "food_drink"],
+    tags: ["#맛집", "#서울"],
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "200",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#숙소", "family_holidays"],
+    tags: ["#숙소", "#서울"],
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const blogs = [
     date: "Jan 06, 2023",
     delayAnimation: "300",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#여행지", "food_drink"],
+    tags: ["#여행지", "#부산"],
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "400",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#숙소", "family_holidays"],
+    tags: ["#숙소", "#부산"],
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const blogs = [
     date: "Jan 06, 2023",
     delayAnimation: "100",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#숙소", "food_drink"],
+    tags: ["#숙소", "#부산"],
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "200",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#숙소", "family_holidays"],
+    tags: ["#숙소", "#경기"],
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const blogs = [
     date: "Jan 06, 2023",
     delayAnimation: "300",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#맛집", "food_drink"],
+    tags: ["#맛집", "#경기"],
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "200",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#맛집", "food_drink"],
+    tags: ["#맛집", "#경기"],
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "300",
     details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-    tags: ["#맛집", "explore"],
+    tags: ["#맛집", "#인천"],
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "100",
     details: `Ut enim ad minim veniam, quis nostrud exerc ullamco laboris nisi ut aliquip.`,
-    tags: ["#여행지", "food_drink"],
+    tags: ["#여행지", "#인천"],
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ const blogs = [
     date: "April 06, 2022",
     delayAnimation: "200",
     details: `Ut enim ad minim veniam, quis nostrud exerc ullamco laboris nisi ut aliquip.`,
-    tags: ["#여행지", "air_travel"],
+    tags: ["#여행지", "#인천"],
   },
 ];
 export default blogs;
