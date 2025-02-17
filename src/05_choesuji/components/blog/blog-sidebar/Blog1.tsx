@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import BlogPagination from "./BlogPagination";
+import Tourlist from "./tourlist";
+
+
   // 주요 지역과 해당하는 하위 지역 데이터
   const subRegions: { [key: string]: string[] } = {
     "#전국": [],
@@ -71,7 +74,9 @@ import BlogPagination from "./BlogPagination";
     };
   
 //지역과 해당하는 테마들 설정
-const regions = ["#서울","#전국","#인천","#대전","#대구"];
+const regions = ["#전국","#서울", "#인천", "#대전", "#대구", "#부산", "#광주", "#대전", "#울산", 
+                "#세종", "#경기", "#강원", "#충북", "#충남", "#전북", "#전남", "#경북", "#경남", "#제주"];               
+
 const themes = ["#전체","#대한민국100대명소","#숙박", "#가족과함께", "#연인", "#샘플1", "#샘플2", "#샘플3"
                 , "#샘플4", "#샘플5", "#샘플6", "#샘플7", "#샘플8"];
 
@@ -84,38 +89,47 @@ const RegionSelector: React.FC = () => {
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); //선택된 키워드 저장
 
 
-//주요도시 (시도)
- const handleRegionClick = (region: string) => {
-  let updatedKeywords = [...selectedKeywords];
-
-  if (region === "#전국") {
-    // #전체 버튼 클릭 시, 모든 주요 지역을 적용
-    setSelectedRegion("#전국");
-    const allRegions = Object.keys(subRegions).slice(0, 18); // 예시로 18개 주요 지역까지
-    setSelectedKeywords(allRegions);  // 모든 주요 지역이 실제 키워드로 적용
-    setSubFilterOptions([]); // #전국 선택 시 하위 지역 비활성화
-  } else {
-    // 다른 지역을 클릭했을 때
-    if (selectedRegion === region) {
-      // 이미 선택된 지역을 해제할 때
-      setSelectedRegion(null);
-      updatedKeywords = updatedKeywords.filter((item) => item !== region); // 선택 해제
-      setSubFilterOptions([]); // 하위 지역 초기화
-    } else {
-      setSelectedRegion(region);
-      updatedKeywords = [region]; // 선택된 지역만 키워드에 포함
-      setSubFilterOptions(subRegions[region]); // 해당 지역의 하위 지역을 설정
-    }
-    setSelectedKeywords(updatedKeywords);
-  }
-};
+  //주요지역
+  const handleRegionClick = (region: string) => {
+    let updatedKeywords: string[] = [];
   
+    if (region === "#전국") {
+      // '전국'을 선택하면 하위 지역과 테마에서 기본적으로 '#전체'를 선택
+      setSelectedRegion("#전국");
+      setSelectedKeywords((prevKeywords) => {
+        // '#전국'을 항상 목록에 추가
+        const newKeywords = [...prevKeywords, "#전국"];
+        return Array.from(new Set(newKeywords));  // 중복 제거
+      });
+      setSubFilterOptions([]); // 하위 지역 초기화 (전국 선택 시 더 이상 하위 지역 없음)
+      setSelectedSubRegion(["#전체"]); // 하위 지역에서 기본적으로 '전체' 설정
+      setSelectedTheme(["#전체"]); // 테마에서 기본적으로 '전체' 설정
+      updatedKeywords = ["#전국", "#전체"];
+    } else {
+      if (selectedRegion === region) {
+        setSelectedRegion(null);
+        updatedKeywords = updatedKeywords.filter((item) => item !== region);
+        setSubFilterOptions([]); // 하위 지역 초기화
+        setSelectedSubRegion([]); // 하위 지역 초기화
+        setSelectedTheme([]); // 테마 초기화
+      } else {
+        setSelectedRegion(region);
+        updatedKeywords = [region];
+        setSubFilterOptions(subRegions[region] || []); // 해당 지역의 하위 지역을 설정
+        setSelectedSubRegion([]); // 하위 지역 초기화
+        setSelectedTheme([]); // 테마 초기화
+      }
+    }
+  
+    // 선택된 키워드 업데이트
+    setSelectedKeywords(updatedKeywords);
+  };
 
- //하위지역 관리
- const handleSubRegionClick = (subRegion: string) => {
+
+// 하위 지역 관리
+const handleSubRegionClick = (subRegion: string) => {
   setSelectedSubRegion((prevState) => {
-    let updatedSubRegions: string[];
-
+    let updatedSubRegions = [...prevState];
     if (subRegion === "#전체") {
       if (prevState.includes("#전체")) {
         updatedSubRegions = prevState.filter((item) => item !== "#전체");
@@ -128,225 +142,200 @@ const RegionSelector: React.FC = () => {
       } else {
         updatedSubRegions = [...prevState, subRegion];
       }
+      if (updatedSubRegions.includes("#전체")) {
+        updatedSubRegions = updatedSubRegions.filter((item) => item !== "#전체");
+      }
     }
 
-    // '#전체'가 선택된 상태라면 다른 하위 지역을 선택하면 '#전체'는 제거
-    if (updatedSubRegions.includes("#전체")) {
-      updatedSubRegions = updatedSubRegions.filter((item) => item !== "#전체");
-    }
-
-    // 업데이트된 하위지역을 반영
     setSelectedKeywords((prevKeywords) => {
-      // 주요 지역과 테마도 함께 반영하여 최종 키워드 배열을 업데이트
       const majorRegionKeywords = selectedRegion ? [selectedRegion] : [];
       const themeKeywords = selectedTheme.length > 0 ? selectedTheme : [];
-      
-      return [
-        ...majorRegionKeywords,
-        ...updatedSubRegions,
-        ...themeKeywords,
-      ];
+      return [...majorRegionKeywords, ...updatedSubRegions, ...themeKeywords];
     });
 
     return updatedSubRegions;
   });
 };
 
-  
-  // 테마 선택 처리
-  const handleThemeChange = (theme: string) => {
-    setSelectedTheme((prevState) => {
-      let updatedThemes: string[];
-  
-      if (theme === "#전체") {
-        if (prevState.includes("#전체")) {
-          updatedThemes = prevState.filter((item) => item !== "#전체");
-        } else {
-          updatedThemes = ["#전체"];
-        }
+// 테마 선택 처리
+const handleThemeChange = (theme: string) => {
+  setSelectedTheme((prevState) => {
+    let updatedThemes: string[];
+
+    if (theme === "#전체") {
+      // '#전체' 클릭 시 다른 테마를 모두 비우고 '#전체'만 추가
+      if (prevState.includes("#전체")) {
+        updatedThemes = [];  // '#전체'를 다시 클릭하면 선택된 테마를 모두 비운다.
       } else {
-        if (prevState.includes(theme)) {
-          updatedThemes = prevState.filter((item) => item !== theme);
-        } else {
-          updatedThemes = [...prevState, theme];
-        }
+        updatedThemes = ["#전체"];  // '#전체'를 활성화하면 다른 모든 테마는 비활성화
       }
-  
-      // '#전체'가 선택된 상태라면 다른 테마를 선택하면 '#전체'는 제거
-      if (updatedThemes.includes("#전체")) {
-        updatedThemes = updatedThemes.filter((item) => item !== "#전체");
+    } else {
+      // 다른 테마를 선택했을 때 '#전체'는 제외하고 해당 테마만 추가
+      if (prevState.includes("#전체")) {
+        updatedThemes = prevState.filter(item => item !== "#전체");  // '#전체'가 선택된 상태에서 다른 테마를 추가
+      } else {
+        updatedThemes = [...prevState, theme];  // '#전체'가 선택되지 않은 상태에서 다른 테마를 추가
       }
-  
-      // 업데이트된 테마를 반영
-      setSelectedKeywords((prevKeywords) => {
-        // 주요 지역과 하위 지역도 함께 반영하여 최종 키워드 배열을 업데이트
-        const majorRegionKeywords = selectedRegion ? [selectedRegion] : [];
-        const subRegionKeywords = selectedSubRegion.length > 0 ? selectedSubRegion : [];
-  
-        return [
-          ...majorRegionKeywords,
-          ...subRegionKeywords,
-          ...updatedThemes,
-        ];
-      });
-  
-      return updatedThemes;
+    }
+
+    // 선택된 키워드를 업데이트
+    setSelectedKeywords((prevKeywords) => {
+      const majorRegionKeywords = selectedRegion ? [selectedRegion] : [];
+      const subRegionKeywords = selectedSubRegion.length > 0 ? selectedSubRegion : [];
+      return [...majorRegionKeywords, ...subRegionKeywords, ...updatedThemes];
     });
-  };
-  
- 
-  
-  return (
+
+    return updatedThemes;
+  });
+};
+
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  minHeight: "100vh",
+                  textAlign: "center",
+                  padding: "20px",
+                }}
+              >
+                <h3>📍{selectedRegion === "#전국" ? "전국" : selectedRegion}</h3> {/* "전국" 표시 */}
+                <div style={{ marginBottom: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "10px",
+                      flexWrap: "wrap",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {Object.keys(subRegions)
+                      .slice(0, 18)
+                      .map((region) => (
+                        <div
+                          key={region}
+                          onClick={() => handleRegionClick(region)}
+                          style={{
+                            padding: "10px",
+                            backgroundColor: selectedRegion === region ? "#4CAF50" : "#ddd",
+                            color: selectedRegion === region ? "white" : "black",
+                            borderRadius: "5px",
+                            cursor: "pointer",
+                            textAlign: "center",
+                            height: "50px",
+                            flex: "1 0 calc(11.1% - 10px)",
+                            display: "flex",
+                          }}
+                        >
+                          {region}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+
+                    {selectedRegion && (
+                      <>
+                        <h4>🏙️ {selectedSubRegion.join(",")}</h4>
+                        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                          {subFilterOptions.length > 0 ? (
+                            subFilterOptions.map((subRegion) => (
+                              <div
+                                key={subRegion}
+                                onClick={() => handleSubRegionClick(subRegion)}
+                                style={{
+                                  backgroundColor: selectedSubRegion.includes(subRegion) ? "#4CAF50" : "#ddd",
+                                  color: selectedSubRegion.includes(subRegion) ? "white" : "black",
+                                  padding: "10px 20px",
+                                  borderRadius: "5px",
+                                  justifyContent: "center",
+                                  flex: "1 0 calc(20% - 10px)",
+                                  maxWidth: "115px",
+                                  height: "50px",
+                                }}
+                              >
+                                {subRegion}
+                              </div>
+                            ))
+                          ) : (
+                            <p>전국 선택!!</p>
+                          )}
+                        </div>
+                      </>
+                    )}
+
+{selectedRegion && (
+  <div style={{ marginTop: "20px" }}>
+    <h4>🎨 {selectedTheme.length > 0 ? selectedTheme.join(",") : "선택된 테마 없음"}</h4>
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
+        gap: "10px",
+        flexWrap: "wrap",
         justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        textAlign: "center",
-        padding: "20px",
       }}
     >
-      {/* 기존 콘텐츠들 */}
-      <h3>📍{selectedRegion}</h3>
-      <div style={{ marginBottom: "20px" }}>
+      {themes.map((theme) => (
         <div
+          key={theme}
+          onClick={() => handleThemeChange(theme)}
           style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-            justifyContent: "center",
+            padding: "10px 20px",
+            backgroundColor:
+              selectedTheme.includes(theme) || (selectedRegion && theme === "#전체")
+                ? "#4CAF50"  // '#전체' 버튼 또는 선택된 테마 활성화
+                : "#ddd", 
+            color:
+              selectedTheme.includes(theme) || (selectedRegion && theme === "#전체")
+                ? "white"
+                : "black",
+            borderRadius: "5px",
+            cursor: "pointer",
+            textAlign: "center",
+            height: "50px",
           }}
         >
-          {Object.keys(subRegions)
-            .slice(0, 18)
-            .map((region) => (
-              <div
-                key={region}
-                onClick={() => handleRegionClick(region)}
-                style={{
-                  padding: "10px",
-                  backgroundColor: selectedRegion === region ? "#4CAF50" : "#ddd",
-                  color: selectedRegion === region ? "white" : "black",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  textAlign: "center",
-                  height: "50px",
-                  flex: "1 0 calc(11.1% - 10px)",
-                  display: "flex",
-                }}
-              >
-                {region}
-              </div>
-            ))}
+          {theme}
         </div>
-      </div>
-
-      {selectedRegion && (
-        <>
-          <h4>🏙️ {selectedSubRegion.join(",")}</h4>
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            {subFilterOptions.length > 0 ? (
-              subFilterOptions.map((subRegion) => (
-                <div
-                  key={subRegion}
-                  onClick={() => handleSubRegionClick(subRegion)} // 클릭 시 선택/해제
-                  style={{
-                    backgroundColor: selectedSubRegion.includes(subRegion) ? "#4CAF50" : "#ddd",
-                    color: selectedSubRegion.includes(subRegion) ? "white" : "black",
-                    padding: "10px 20px",
-                    borderRadius: "5px",                    
-                    justifyContent: "center",
-                    flex: "1 0 calc(20% - 10px)",
-                    maxWidth: "115px",
-                    height: "50px",                    
-                  }}
-                >
-                  {subRegion}
-                </div>
-              ))
-            ) : (
-              <p>전국 선택!!</p>
-            )}
-          </div>
-        </>
-      )}
-
-      {selectedRegion && (
-        <div style={{ marginTop: "20px" }}>
-          <h4>🎨 {selectedTheme.join(",")}</h4>
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            {themes.map((theme) => (
-              <div
-                key={theme}
-                onClick={() => handleThemeChange(theme)}
-                style={{
-                  padding: "10px 20px",
-                  backgroundColor: selectedTheme.includes(theme) ? "#4CAF50" : "#ddd",
-                  color: selectedTheme.includes(theme) ? "white" : "black",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  textAlign: "center",
-                  height: "50px",
-                }}
-              >
-                {theme}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* 선택된 키워드들 나열 섹션 */}
-          <div style={{ marginTop: "20px", width: "100%" }}>
-            <section
-              style={{
-                padding: "20px",
-                border: "1px solid #ddd",
-                borderRadius: "10px",
-                backgroundColor: "#f9f9f9",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <h2>선택된 키워드들:</h2>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                {selectedKeywords.map((keyword, index) => (
-                  <div
-                    key={index}
+      ))}
+    </div>
+  </div>
+)}
+                <div style={{ marginTop: "20px", width: "100%" }}>
+                  <section
                     style={{
-                      backgroundColor: "transparent", // 배경 투명
-                      color: "#4CAF50", // 텍스트 색상
-                      padding: "5px 10px", // 텍스트 주변 여백
-                      border: "1px solid #4CAF50", // 테두리
-                      borderRadius: "5px", // 둥근 테두리
-                      fontSize: "16px", // 폰트 크기
+                      padding: "20px",
+                      border: "1px solid #ddd",
+                      borderRadius: "10px",
+                      backgroundColor: "#f9f9f9",
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     }}
                   >
-                    {keyword}
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-
-
-      <section data-aos="fade" className="d-flex items-center py-15 border-top-light">
-        <div>        
-          <h3>아이템리스트로 이미지 줄에 4개씩 띄우기</h3>
-        </div>
-      </section>
-
-      <BlogPagination />
-    </div>
-  );
-};
+                    <h2>선택된 키워드들:</h2>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                      {selectedKeywords.map((keyword, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            backgroundColor: "transparent",
+                            color: "#4CAF50",
+                            padding: "5px 10px",
+                            border: "1px solid #4CAF50",
+                            borderRadius: "5px",
+                            fontSize: "16px",
+                          }}
+                        >
+                          {keyword}
+                        </div>
+                      ))}
+                    </div>                  
+                  </section>
+                </div>
+                <Tourlist selectedKeywords={selectedKeywords} />     
+              <BlogPagination />
+            </div>
+            );
+          };
 
 export default RegionSelector;

@@ -34,7 +34,7 @@ const FindTourList: React.FC= () => {
         </div>
       </section>
       <Blog1/>
-      <CallToActions />
+    <CallToActions />
       {/* End Call To Actions Section */}
 
 
