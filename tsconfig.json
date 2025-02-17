@@ -11,8 +11,8 @@
     },
     "types": ["kakao.maps.d.ts"]
   },
-  "types":["kakao.maps.d.ts"],
-  "files": [],
+  "types": ["kakao.maps.d.ts"],  // 카카오 지도 관련 타입 추가
+  "files": [],  // 파일 경로 설정
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

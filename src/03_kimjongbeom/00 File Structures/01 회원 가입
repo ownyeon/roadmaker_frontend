@@ -1,0 +1,36 @@
+frontend
+src/
+├── 03_kimjongbeom/
+│   ├── components/
+│   │   ├── Login.tsx
+│   │   ├── Signup.tsx
+│   ├── pages/
+│   │   ├── Home.tsx
+│   ├── services/
+│   │   ├── authService.ts
+│   ├── utils/
+│   │   ├── jwtUtils.ts
+│   ├── App.tsx
+│   ├── main.tsx
+└── .env
+└── package.json
+
+backend
+src/
+└── main/
+    └── 03_kimjongbeom/
+        ├── controllers/
+        │   ├── authController.ts
+        ├── middleware/
+        │   ├── authMiddleware.ts
+        ├── models/
+        │   ├── memberModel.ts
+        ├── routes/
+        │   ├── authRoutes.ts
+        ├── services/
+        │   ├── authService.ts
+        ├── utils/
+        │   ├── emailUtils.ts
+        ├── app.ts
+    ├── .env
+    └── package.json

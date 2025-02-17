@@ -64,7 +64,7 @@
   /* =============================== */
 
 
-/*social-icon*/
+/* social-icon */
 /* 새로운 버튼 스타일 (테두리 제거) */
 .socialButton {
   border: none; /* 테두리 제거 */
@@ -73,6 +73,10 @@
   justify-content: center;
   padding: 10px;
   background-color: transparent; /* 배경색을 투명하게 설정 */
+  cursor: pointer; /* 마우스 오버시 포인터로 변경 */
+  white-space:nowrap; /*텍스트와 아이콘이 한 줄로 유지되도록 */
+  flex-wrap:nowrap; /*버튼이 줄 바꿈 없이 한 줄에 유지되도록 */
+  overflow:hidden; /*내용이 넘칠 경우 숨기기 */
 }
 
 /* Google과 Naver 버튼용 스타일 */
@@ -89,10 +93,47 @@
 
 /* 이미지 크기 조정 */
 .socialIcon {
-  width: 60px; /* 원하는 크기로 설정 */
+  width: 50px; /* 기본 이미지 크기 설정 */
   height: auto;
-  margin-right: 10px; /* 이미지와 텍스트 사이에 간격 추가 */
+  margin-right: 0px; /* 이미지와 텍스트 사이에 간격 추가 */
+  transition:width 0.2s ease-in-out; /*이미지 크기 변경시 부드러운 전환 효과 */
 }
+
+/* 반응형 디자인 추가 */
+
+/* 작은 화면에서 이미지 크기 줄이기 */
+@media (max-width: 768px) {
+  .socialButton {
+    padding: 6px; /* 작은 화면에서는 버튼 패딩을 줄여서 공간 절약 */
+  }
+
+  .socialIcon {
+    width: 45px; /* 작은 화면에서는 이미지 크기 줄이기 */
+  }
+}
+
+/* 매우 작은 화면에서 텍스트 크기 및 이미지 크기 추가로 줄이기 */
+@media (max-width: 480px) {
+  .socialButton {
+    padding: 2px; /* 매우 작은 화면에서 버튼 패딩을 줄임 */
+  }
+
+  .socialIcon {
+    width: 30px; /* 이미지 크기를 더 작게 설정 */
+    margin-right: 0px; /* 이미지와 텍스트 간격 축소 */
+  }
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: 0;
+  margin-left: 0;
+}
+
   
 /* =============================== */
 

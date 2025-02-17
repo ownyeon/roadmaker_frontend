@@ -1,3 +1,5 @@
+// src/03_kimjongbeom/components/common/LoginForm.tsx
+
 import { Link } from "react-router-dom";
 import LoginCSS from "../../css/Login.module.scss";
 
