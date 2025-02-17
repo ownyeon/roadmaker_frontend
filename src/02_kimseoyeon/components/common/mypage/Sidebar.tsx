@@ -24,7 +24,7 @@ const Sidebar = () => {
       id: 3,
       icon: "/src/02_kimseoyeon/assets/images/activity.svg",
       name: "내 활동",
-      routePath: "/dashboard/db-wishlist",
+      routePath: "/mypage/mycomment",
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const Sidebar = () => {
       id: 5,
       icon: "/src/02_kimseoyeon/assets/images/withdraw.svg",
       name: "회원 탈퇴",
-      routePath: "/login",
+      routePath: "/mypage/deleteaccount",
     },
   ];
   return (

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const AvatarUploader = () => {
-  const [image, setImage] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+const AvatarUploader: React.FC = () => {
+  const [image, setImage] = useState<string>("");
+  const [error, setError] = useState<string>(""); 
+  const [success, setSuccess] = useState<boolean>(false); // ✅ `success`의 타입을 `boolean`으로 명시
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]; // ✅ `?.[0]` 사용하여 파일 존재 여부 체크
     const reader = new FileReader();
 
     if (!file) {
@@ -28,16 +28,18 @@ const AvatarUploader = () => {
     }
 
     reader.onload = () => {
-      setImage(reader.result);
-      setSuccess(true);
-      setError("");
+      if (typeof reader.result === "string") {
+        setImage(reader.result); // ✅ `reader.result`가 `string`인지 확인 후 설정
+        setSuccess(true);
+        setError("");
+      }
     };
 
     reader.readAsDataURL(file);
   };
 
   return (
-    <div className="row y-gap-30 items-center" style={{marginLeft:"10px", marginTop:"25px"}}>
+    <div className="row y-gap-30 items-center" style={{ marginLeft: "10px", marginTop: "25px" }}>
       <div className="col-auto">
         {image ? (
           <div className="d-flex ratio ratio-1:1 w-200">
@@ -69,14 +71,14 @@ const AvatarUploader = () => {
 
       <div className="col-auto">
         <h4 className="text-26 fw-500 titleFont"> 홍길동</h4>
-        <div className="text-14 mt-5">
-          PNG 또는 JPG의 크기는 가로 및 세로 800px를 초과할 수 없습니다. 
+        <div className="text-14 mt-5 subFont">
+          PNG 또는 JPG의 크기는 가로 및 세로 800px를 초과할 수 없습니다.
         </div>
         <div className="d-inline-block mt-15">
           <label
             htmlFor="avatar-upload"
             role="button"
-            className="button h-50 px-24 -dark-1 bg-blue-1 text-white"
+            className="button h-50 px-24 -dark-1 bg-black-1 text-white subFont"
           >
             <i className="icon-upload-file text-20 mr-10" />
             Browse
