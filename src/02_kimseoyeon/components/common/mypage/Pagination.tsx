@@ -21,14 +21,13 @@ const Pagination: React.FC = () => {
   };
 
   const renderPages = () => {
-    const totalPages = 5; // ✅ 실제 총 페이지 수
+    const totalPages = 5; 
     return Array.from({ length: totalPages }, (_, i) => renderPage(i + 1, i + 1 === currentPage));
   };
 
   return (
     <div className="border-top-light mt-30 pt-30">
       <div className="row x-gap-10 y-gap-20 justify-between md:justify-center">
-        {/* ✅ 이전 페이지 버튼 */}
         <div className="col-auto md:order-1">
           <button
             className="circle-button"
@@ -39,7 +38,6 @@ const Pagination: React.FC = () => {
           </button>
         </div>
 
-        {/* ✅ 페이지 번호 */}
         <div className="col-md-auto md:order-3">
           <div className="row x-gap-20 y-gap-20 items-center md:d-none">
             {renderPages()}
@@ -49,7 +47,6 @@ const Pagination: React.FC = () => {
           </div>
         </div>
 
-        {/* ✅ 다음 페이지 버튼 */}
         <div className="col-auto md:order-2">
           <button
             className="circle-button"

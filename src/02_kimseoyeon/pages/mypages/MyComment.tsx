@@ -23,7 +23,8 @@ const MyComment: React.FC = () => {
 
           {/* ✅ 탭 네비게이션 */}
           <div className="tabs -underline-2 js-tabs">
-            <div className="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls">
+            <div className="tabs__controls row x-gap-40 y-gap-10 lg:x-gap-20 js-tabs-controls"   style={{ marginBottom: "10px"}}
+            >
               {tabItems.map((item, index) => (
                 <div className="col-auto" key={index}>
                   <button
@@ -38,16 +39,28 @@ const MyComment: React.FC = () => {
               ))}
             </div>
           </div>
+          
 
-          {/* ✅ 표 추가 (탭에 따라 변경 가능) */}
           <div className="overflow-scroll scroll-bar-1">
             <table className="table-3 -border-bottom col-12">
               <thead className="bg-light-2">
                 <tr>
-                  <th>번호</th>
-                  <th>댓글 내용</th>
-                  <th>작성일</th>
-                  <th>관리</th>
+                  {activeTab === 0 ? (
+                    <>
+                      <th>여행지명</th>
+                      <th>댓글</th>
+                      <th>작성일</th>
+                      <th>관리</th>
+                    </>
+                  ) : (
+                    <>
+                      <th>여행지명</th>
+                      <th>위치</th>
+                      <th>카테고리</th>
+                      <th>등록일자</th>
+                      <th>관리</th>
+                    </>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -87,19 +100,15 @@ const MyComment: React.FC = () => {
                   <tr>
                     <td>3</td>
                     <td>좋은 정보 감사합니다!</td>
+                    <td>맛집</td>
                     <td>2024-02-15</td>
                     <td>
-                      <span className="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-green-1 text-white">
-                        승인됨
-                      </span>
-                    </td>
-                    <td>
-                      <button className="button -blue-1 size-40 rounded-full border-light">
-                        수정
-                      </button>
-                      <button className="button -red-1 size-40 rounded-full border-light">
-                        삭제
-                      </button>
+                    <button className="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-yellow-4 text-yellow-3">
+                          수정
+                        </button>
+                        <button className="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">
+                          삭제
+                        </button>
                     </td>
                   </tr>
                 )}

@@ -18,7 +18,7 @@ const Sidebar = () => {
       id: 2,
       icon: "/src/02_kimseoyeon/assets/images/book.svg",
       name: "관심 여행지",
-      routePath: "/dashboard/db-booking",
+      routePath: "/mypage/FavoriteDesinations",
     },
     {
       id: 3,

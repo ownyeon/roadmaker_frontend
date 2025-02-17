@@ -4,6 +4,8 @@ import Profile from "./Profile";
 import ChangePW from "./ChangePW";
 import DeleteAccount from "./DeleteAccount";
 import MyComment from "./MyComment";
+import FavoriteDesinations from "./FavoriteDesinations";
+
 import "../../../02_kimseoyeon/styles/mypage.scss";
 import "../../styles/font.scss";
 
@@ -18,6 +20,8 @@ const Mypage = () => {
           <Route path="change-password" element={<ChangePW />} />
           <Route path="DeleteAccount" element={<DeleteAccount />} />
           <Route path="MyComment" element={<MyComment />} />
+          <Route path="FavoriteDesinations" element={<FavoriteDesinations />} />
+
         </Routes>
       </div>
 
