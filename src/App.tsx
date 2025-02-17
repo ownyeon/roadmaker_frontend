@@ -20,6 +20,7 @@ import Mypage from "./02_kimseoyeon/pages/mypages/Mypage";
 import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
 import NewFestival from "./04_shindonggwon/pages/NewFestival";
 import NewRegister from "./05_choesuji/pages/newregister";
+import AdminDashboard from "./06_hwangjinsang/pages/admin/AdminDashboard";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
@@ -51,7 +52,7 @@ function App() {
         <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
         <Route path="/roadtalk/:id" element={<RoadTalkDetail/>}/> {/* 로드톡 상세 페이지 */}
         <Route path="/mypage/*" element={< Mypage/>}/> {/* 마이페이지 */}
-        <Route path="/admin" /> {/* 관리자페이지 */}
+        <Route path="/admin" element={<AdminDashboard/>}/> {/* 관리자페이지 */}
       </Routes>
     </BrowserRouter>
   );
