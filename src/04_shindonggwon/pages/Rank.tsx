@@ -1,6 +1,4 @@
-import React from "react";
 import RankList from "../components/blog/RankList";
-import RankMap from "../components/blog/RankMap";
 
 const metadata = {
   title: "Blog List V1 || GoTrip - Travel & Tour ReactJs Template",
@@ -23,9 +21,7 @@ const Rank = () => {
             </div>
           </div>
           <RankList />
-          <div style={{ marginTop: "40px" }}> {/* 지도와 태그 사이에 여백 추가 */}
-            <RankMap />
-          </div>
+          
         </div>
       </section>
       

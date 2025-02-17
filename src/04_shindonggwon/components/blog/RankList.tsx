@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import blogsData from "../../data/tourList";
-import BlogPagination from "./BlogPagination";
+import RankMap from "./RankMap";
 
-// Tour 인터페이스 정의 (tourList.ts에서 가져오거나 새로 정의)
 interface Tour {
   id: number;
   img: string;
@@ -11,16 +10,19 @@ interface Tour {
   date: string;
   delayAnimation: string;
   details: string;
-  tags: string[]; // 기존 tags 유지
+  tags: string[];
 }
 
 const RankList = () => {
-  const [filterOption, setFilterOption] = useState<string>("art_culture");
-  const [filteredItems, setFilteredItems] = useState<Tour[]>([]);
+  const [filterOption, setFilterOption] = useState<string[]>([]); // 선택된 필터 태그
+  const [filteredItems, setFilteredItems] = useState<Tour[]>([]); // 필터링된 여행지 리스트
 
+  // filterOption이 변경될 때마다 필터링된 여행지 리스트 업데이트
   useEffect(() => {
     setFilteredItems(
-      blogsData.filter((elm) => (elm.tags ?? []).includes(filterOption)) // tags가 undefined일 경우 대비
+      blogsData.filter((elm) =>
+        filterOption.every((tag) => elm.tags.includes(tag)) // 모든 선택된 태그가 포함된 항목만 필터링
+      )
     );
   }, [filterOption]);
 
@@ -30,6 +32,20 @@ const RankList = () => {
     { label: "#숙소", value: "#숙소" },
   ];
 
+  // 필터 버튼 클릭 시 태그 추가/제거
+  const handleFilterClick = (value: string) => {
+    setFilterOption((prev) =>
+      prev.includes(value) ? prev.filter((tag) => tag !== value) : [...prev, value]
+    );
+  };
+
+  // 지도에서 마커 클릭 시 태그 추가 (RankMap에서 호출할 예정)
+  const handleMapClick = (value: string) => {
+    setFilterOption((prev) =>
+      prev.includes(value) ? prev : [...prev, value] // 중복 추가 방지
+    );
+  };
+
   return (
     <div className="tabs -pills-3 pt-30 js-tabs">
       {/* 필터 버튼 */}
@@ -38,14 +54,19 @@ const RankList = () => {
           <div className="col-auto" key={option.value}>
             <button
               className={`tabs__button text-14 fw-500 px-20 py-10 rounded-4 bg-light-2 js-tabs-button ${
-                filterOption === option.value ? "is-tab-el-active" : ""
+                filterOption.includes(option.value) ? "is-tab-el-active" : ""
               }`}
-              onClick={() => setFilterOption(option.value)}
+              onClick={() => handleFilterClick(option.value)}
             >
               {option.label}
             </button>
           </div>
         ))}
+      </div>
+
+      {/* 지도 표시 */}
+      <div style={{ marginTop: "40px" }}>
+        <RankMap onMapClick={handleMapClick} /> {/* RankMap에 함수 전달 */}
       </div>
 
       {/* 여행지 리스트 */}
@@ -66,9 +87,6 @@ const RankList = () => {
           </div>
         ))}
       </div>
-
-      {/* 페이지네이션 */}
-      {/* <BlogPagination /> */}
     </div>
   );
 };
