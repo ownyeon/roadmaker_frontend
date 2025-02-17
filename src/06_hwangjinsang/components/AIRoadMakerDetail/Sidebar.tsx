@@ -34,7 +34,6 @@ const Sidebar = () => {
         <div className="col-6 subFont menu">일정 상세보기</div>
       </div>
       <SelectedComponent />
-      
     </div>
   );
 };
