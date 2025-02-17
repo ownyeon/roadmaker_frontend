@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "noImplicitAny": false,
-    "baseUrl": "./",
+    "allowJs": true,  // JavaScript 파일도 허용
+    "noImplicitAny": false,  // 암시적인 any 타입 허용
+    "baseUrl": "./",  // 기준 경로 설정
     "paths": {
-      "@/*":["src/*"] // '@'를 'src'로 맵핑
+      "@/*": ["src/*"]  // '@'를 'src' 디렉토리로 맵핑
     }
   },
-  "types":["kakao.maps.d.ts"],
-  "files": [],
+  "types": ["kakao.maps.d.ts"],  // 카카오 지도 관련 타입 추가
+  "files": [],  // 파일 경로 설정
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ],
+  ]
 }
