@@ -1,17 +1,12 @@
 import Sidebar from "../../components/admin/common/Sidebar";
 import "../../styles/Admin.scss";
 import "../../styles/common.scss";
-
-const AdminDashboard = () => {
-
+const AdminComplaint = () => {
   return (
-
-    <div className="adminDashboard">
-      
+    <div className="adminComplaint">
       <Sidebar />
-      <div className="pageBg" />
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminComplaint;

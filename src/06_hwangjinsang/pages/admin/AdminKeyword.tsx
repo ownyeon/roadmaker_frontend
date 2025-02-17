@@ -1,17 +1,12 @@
 import Sidebar from "../../components/admin/common/Sidebar";
 import "../../styles/Admin.scss";
 import "../../styles/common.scss";
-
-const AdminDashboard = () => {
-
+const AdminKeyword = () => {
   return (
-
-    <div className="adminDashboard">
-      
+    <div className="adminKeyword">
       <Sidebar />
-      <div className="pageBg" />
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminKeyword;

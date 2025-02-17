@@ -1,7 +1,7 @@
 const TravelList = ({travelDetail}:{travelDetail:()=>void}) => (
     // 추후 map을 이용해서 불러오기
-  <div className="row">
-    <div className="col-4 pointer">
+  <div className="row" >
+    <div className="col-4 pointer" onClick={travelDetail}>
       <img
         className="rounded-8"
         src="/src/06_hwangjinsang/assets/imgs/coffee.jpg"
