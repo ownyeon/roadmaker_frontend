@@ -72,91 +72,155 @@ import BlogPagination from "./BlogPagination";
   
 //지역과 해당하는 테마들 설정
 const regions = ["#서울","#전국","#인천","#대전","#대구"];
-const themes = ["#대한민국100대명소","#숙박", "#가족과함께", "#연인", "#샘플1", "#샘플2", "#샘플3"
+const themes = ["#전체","#대한민국100대명소","#숙박", "#가족과함께", "#연인", "#샘플1", "#샘플2", "#샘플3"
                 , "#샘플4", "#샘플5", "#샘플6", "#샘플7", "#샘플8"];
 
-const regionThemes1 = Object.fromEntries(
-  regions.map(region => [region, themes])
-);
 
 const RegionSelector: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null); // 주요지역
   const [subFilterOptions, setSubFilterOptions] = useState<string[]>([]); // 하위지역
-  const [selectedTheme, setSelectedTheme] = useState<string[]>([]); // 테마다중선택
+  const [selectedTheme, setSelectedTheme] = useState<string[]>([]); // 테마
   const [selectedSubRegion, setSelectedSubRegion] = useState<string[]>([]); // 다중하위지역
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); //선택된 키워드 저장하는곳
+  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]); //선택된 키워드 저장
 
 
+//주요도시 (시도)
+ const handleRegionClick = (region: string) => {
+  let updatedKeywords = [...selectedKeywords];
 
-  // 주요 지역 선택 시 하위 지역 변경 또는 선택 해제
-  const handleRegionClick = (region: string) => {
+  if (region === "#전국") {
+    // #전체 버튼 클릭 시, 모든 주요 지역을 적용
+    setSelectedRegion("#전국");
+    const allRegions = Object.keys(subRegions).slice(0, 18); // 예시로 18개 주요 지역까지
+    setSelectedKeywords(allRegions);  // 모든 주요 지역이 실제 키워드로 적용
+    setSubFilterOptions([]); // #전국 선택 시 하위 지역 비활성화
+  } else {
+    // 다른 지역을 클릭했을 때
     if (selectedRegion === region) {
+      // 이미 선택된 지역을 해제할 때
       setSelectedRegion(null);
-      setSubFilterOptions([]); // 하위 지역도 사라지게 처리
-      setSelectedTheme([]); // 테마 초기화
-      setSelectedKeywords((prev) => prev.filter((item) => !item.includes(region))); 
-      //키워드에서 삭제
+      updatedKeywords = updatedKeywords.filter((item) => item !== region); // 선택 해제
+      setSubFilterOptions([]); // 하위 지역 초기화
     } else {
       setSelectedRegion(region);
-      setSubFilterOptions(subRegions[region] || []);
-      setSelectedSubRegion([]); // 시도 바꿀때 시군구 초기화
-      // 지역 선택 시 해당 지역에 기본적으로 설정된 테마 추가
-      setSelectedTheme(regionThemes1[region] || []);
-      setSelectedKeywords([region]);  //해당지역 키워드로 추가
-    }
-  };
-
-
-  // 하위 지역 선택 시 중복 가능, 전체 버튼 관련
-  const handleSubRegionClick = (subRegion: string) => {
-    let updatedKeywords = [...selectedKeywords];
-    if (subRegion === '#전체') {
-      setSelectedSubRegion([subRegion]);
-      updatedKeywords = updatedKeywords.filter(item => !item.includes('#전체'));
-      updatedKeywords.push(subRegion);  //전체를 키워드로 추가가
-    } else {
-      setSelectedSubRegion((prevState) => {
-        if (prevState.includes('#전체')) {
-          return prevState.filter(item => item !== '#전체').concat(subRegion);
-        } else {
-          if (prevState.includes(subRegion)) {
-            return prevState.filter((item) => item !== subRegion);
-          } else {
-            return [...prevState, subRegion];
-          }
-        }
-      });
+      updatedKeywords = [region]; // 선택된 지역만 키워드에 포함
+      setSubFilterOptions(subRegions[region]); // 해당 지역의 하위 지역을 설정
     }
     setSelectedKeywords(updatedKeywords);
-    //하위지역에 대한 키워드 추가/삭제
-  };
+  }
+};
+  
 
+ //하위지역 관리
+ const handleSubRegionClick = (subRegion: string) => {
+  setSelectedSubRegion((prevState) => {
+    let updatedSubRegions: string[];
 
-  // 테마 중복 선택 가능하도록
-  const handleThemeChange = (theme: string) => {
-    let updatedKeywords = [...selectedKeywords];
-    if (selectedTheme.includes(theme)) {
-      setSelectedTheme(selectedTheme.filter((item) => item !== theme));
-      //테마 키워드 삭제      
+    if (subRegion === "#전체") {
+      if (prevState.includes("#전체")) {
+        updatedSubRegions = prevState.filter((item) => item !== "#전체");
+      } else {
+        updatedSubRegions = ["#전체"];
+      }
     } else {
-      setSelectedTheme([...selectedTheme, theme]);
-      updatedKeywords.push(theme);  //새로운 테마 키워드로 추가
+      if (prevState.includes(subRegion)) {
+        updatedSubRegions = prevState.filter((item) => item !== subRegion);
+      } else {
+        updatedSubRegions = [...prevState, subRegion];
+      }
     }
-  };
 
+    // '#전체'가 선택된 상태라면 다른 하위 지역을 선택하면 '#전체'는 제거
+    if (updatedSubRegions.includes("#전체")) {
+      updatedSubRegions = updatedSubRegions.filter((item) => item !== "#전체");
+    }
+
+    // 업데이트된 하위지역을 반영
+    setSelectedKeywords((prevKeywords) => {
+      // 주요 지역과 테마도 함께 반영하여 최종 키워드 배열을 업데이트
+      const majorRegionKeywords = selectedRegion ? [selectedRegion] : [];
+      const themeKeywords = selectedTheme.length > 0 ? selectedTheme : [];
+      
+      return [
+        ...majorRegionKeywords,
+        ...updatedSubRegions,
+        ...themeKeywords,
+      ];
+    });
+
+    return updatedSubRegions;
+  });
+};
+
+  
+  // 테마 선택 처리
+  const handleThemeChange = (theme: string) => {
+    setSelectedTheme((prevState) => {
+      let updatedThemes: string[];
+  
+      if (theme === "#전체") {
+        if (prevState.includes("#전체")) {
+          updatedThemes = prevState.filter((item) => item !== "#전체");
+        } else {
+          updatedThemes = ["#전체"];
+        }
+      } else {
+        if (prevState.includes(theme)) {
+          updatedThemes = prevState.filter((item) => item !== theme);
+        } else {
+          updatedThemes = [...prevState, theme];
+        }
+      }
+  
+      // '#전체'가 선택된 상태라면 다른 테마를 선택하면 '#전체'는 제거
+      if (updatedThemes.includes("#전체")) {
+        updatedThemes = updatedThemes.filter((item) => item !== "#전체");
+      }
+  
+      // 업데이트된 테마를 반영
+      setSelectedKeywords((prevKeywords) => {
+        // 주요 지역과 하위 지역도 함께 반영하여 최종 키워드 배열을 업데이트
+        const majorRegionKeywords = selectedRegion ? [selectedRegion] : [];
+        const subRegionKeywords = selectedSubRegion.length > 0 ? selectedSubRegion : [];
+  
+        return [
+          ...majorRegionKeywords,
+          ...subRegionKeywords,
+          ...updatedThemes,
+        ];
+      });
+  
+      return updatedThemes;
+    });
+  };
+  
+ 
+  
   return (
-    <div>
-      <h3>📍 주요 지역 선택 : {selectedRegion}</h3>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        textAlign: "center",
+        padding: "20px",
+      }}
+    >
+      {/* 기존 콘텐츠들 */}
+      <h3>📍{selectedRegion}</h3>
       <div style={{ marginBottom: "20px" }}>
-        {/* 첫 번째 줄과 두 번째 줄을 하나의 컨테이너로 합침 */}
-        <div style={{
-          display: "flex",
-          gap: "10px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {Object.keys(subRegions)
-            .slice(0, 18) // 총 18개를 한 번에 렌더링
+            .slice(0, 18)
             .map((region) => (
               <div
                 key={region}
@@ -168,9 +232,8 @@ const RegionSelector: React.FC = () => {
                   borderRadius: "5px",
                   cursor: "pointer",
                   textAlign: "center",
-                  justifyContent: "center",
-                  height: "50px", // 버튼 높이
-                  flex: "1 0 calc(11.1% - 10px)",  // 한 줄에 9개씩 나오는 계산
+                  height: "50px",
+                  flex: "1 0 calc(11.1% - 10px)",
                   display: "flex",
                 }}
               >
@@ -180,42 +243,39 @@ const RegionSelector: React.FC = () => {
         </div>
       </div>
 
-      {/* 하위 지역 표시 UI */}
       {selectedRegion && (
         <>
-          <h4>🏙️ 선택한 지역: {selectedSubRegion.join(",")}</h4>
+          <h4>🏙️ {selectedSubRegion.join(",")}</h4>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {subFilterOptions.length > 0 ? (
               subFilterOptions.map((subRegion) => (
                 <div
                   key={subRegion}
-                  onClick={() => handleSubRegionClick(subRegion)} // 하위 지역 클릭 처리
+                  onClick={() => handleSubRegionClick(subRegion)} // 클릭 시 선택/해제
                   style={{
                     backgroundColor: selectedSubRegion.includes(subRegion) ? "#4CAF50" : "#ddd",
                     color: selectedSubRegion.includes(subRegion) ? "white" : "black",
                     padding: "10px 20px",
-                    borderRadius: "5px",
-                    cursor: "pointer",
+                    borderRadius: "5px",                    
                     justifyContent: "center",
-                    flex: "1 0 calc(20% - 10px)", // 버튼 크기 균등 분배
-                    maxWidth: "115px", // 최대 너비 제한
-                    height: "50px", // 버튼 높이 동일하게 설정
+                    flex: "1 0 calc(20% - 10px)",
+                    maxWidth: "115px",
+                    height: "50px",                    
                   }}
                 >
                   {subRegion}
                 </div>
               ))
             ) : (
-              <p>하위 지역이 없습니다.</p>
+              <p>전국 선택!!</p>
             )}
           </div>
         </>
       )}
 
-      {/* 테마 선택 UI */}
       {selectedRegion && (
         <div style={{ marginTop: "20px" }}>
-          <h4>🎨 테마 선택 : {selectedTheme.join(",")}</h4>
+          <h4>🎨 {selectedTheme.join(",")}</h4>
           <div
             style={{
               display: "flex",
@@ -244,27 +304,49 @@ const RegionSelector: React.FC = () => {
           </div>
         </div>
       )}
-      {/* 선택된 키워드들 나열하려고 만들어봄 */}
-      <div>
-        <p> 내가 선택한 태그들을 여기에 띄울지? </p>
-        <h2>선택:{selectedKeywords.join("")}</h2>
-      </div>
-       <section
-      data-aos="fade"
-      className="d-flex items-center py-15 border-top-light"
-    >
-      <div>
-        <p>내가 선택한 태그들을 여기에 띄울지2?</p>
-        <h3>그럼 여기서부턴 이미지 띄우려는데 용어 명칭 알아보기 </h3>
-      </div>
 
-    </section>
+      {/* 선택된 키워드들 나열 섹션 */}
+          <div style={{ marginTop: "20px", width: "100%" }}>
+            <section
+              style={{
+                padding: "20px",
+                border: "1px solid #ddd",
+                borderRadius: "10px",
+                backgroundColor: "#f9f9f9",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <h2>선택된 키워드들:</h2>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                {selectedKeywords.map((keyword, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: "transparent", // 배경 투명
+                      color: "#4CAF50", // 텍스트 색상
+                      padding: "5px 10px", // 텍스트 주변 여백
+                      border: "1px solid #4CAF50", // 테두리
+                      borderRadius: "5px", // 둥근 테두리
+                      fontSize: "16px", // 폰트 크기
+                    }}
+                  >
+                    {keyword}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
 
 
-    <BlogPagination/> 
+      <section data-aos="fade" className="d-flex items-center py-15 border-top-light">
+        <div>        
+          <h3>아이템리스트로 이미지 줄에 4개씩 띄우기</h3>
+        </div>
+      </section>
+
+      <BlogPagination />
     </div>
   );
-
 };
 
 export default RegionSelector;

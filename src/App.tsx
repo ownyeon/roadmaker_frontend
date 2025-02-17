@@ -6,6 +6,7 @@ import RoadTalk from "./06_hwangjinsang/pages/RoadTalk";
 import ScrollTopBehaviour from "./01_common/components/common/social/ScrollTopBehaviour";
 //import Aos from "aos";
 import FindTourList from "./05_choesuji/pages/main";
+import NewRegister from "./05_choesuji/pages/newregister.tsx";
 import LogIn from "./03_kimjongbeom/pages/Login";
 import RoadTalkDetail from "./06_hwangjinsang/styles/RoadTalkDetail";
 import AIRoadMaker from "./06_hwangjinsang/pages/airoadmaker/AIRoadMaker";
@@ -40,7 +41,7 @@ function App() {
         <Route path="/airoadmaker/detail" element={<AIRoadMakerDetail/>}/> {/* AI로드메이커 상세페이지*/}
         <Route path="/list" element={<FindTourList/>}/> {/* 여행지 리스트 */}
         <Route path="/list/detail" /> {/* 여행지 상세페이지*/}
-        <Route path="/list/new" /> {/* 여행지 신규 등록*/}
+        <Route path="/list/new" element={<NewRegister/>}/> {/* 여행지 신규 등록*/}
         <Route path="/list/report" /> {/* 여행지 신고 */}
         <Route path="/list/rank"  element={<Rank/>} /> {/* 여행지 순위 */}
         <Route path="/list/festival" /> {/* 여행지 축제 페이지 */}
