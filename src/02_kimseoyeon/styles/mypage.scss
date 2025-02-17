@@ -126,3 +126,16 @@
   transition: all 0.3s ease;
 
 }
+
+//관심 여행지
+.image-container {
+  height: 230px; 
+  overflow: hidden; 
+
+}
+
+.fixed-image {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; 
+}
