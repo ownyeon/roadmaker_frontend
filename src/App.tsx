@@ -19,6 +19,9 @@ import AIRoadMakerDetail from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerDe
 import Mypage from "./02_kimseoyeon/pages/mypages/Mypage";
 import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
 import NewFestival from "./04_shindonggwon/pages/NewFestival";
+import NewRegister from "./05_choesuji/pages/newregister";
+
+
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
