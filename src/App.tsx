@@ -8,7 +8,7 @@ import ScrollTopBehaviour from "./01_common/components/common/social/ScrollTopBe
 import FindTourList from "./05_choesuji/pages/main";
 import NewRegister from "./05_choesuji/pages/newregister.tsx";
 import LogIn from "./03_kimjongbeom/pages/Login";
-import RoadTalkDetail from "./06_hwangjinsang/styles/RoadTalkDetail";
+import RoadTalkDetail from "./06_hwangjinsang/pages/RoadTalkDetail";
 import AIRoadMaker from "./06_hwangjinsang/pages/airoadmaker/AIRoadMaker";
 import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerStart";
 import AIRoadMakerCounty from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerCounty";

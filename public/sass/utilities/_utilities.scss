@@ -153,8 +153,14 @@ $_displays: none, inline-block, block, flex;
   &-4 {
     border-radius: 4px !important;
   }
+  &-5 {
+    border-radius: 5px !important;
+  }
   &-8 {
     border-radius: 8px;
+  }
+  &-10 {
+    border-radius: 10px;
   }
   &-16 {
     border-radius: 16px;
