@@ -1,0 +1,38 @@
+.radio-group {
+    display: flex;             /* 라디오 버튼들을 수평으로 정렬 */
+    gap: 30px;                 /* 라디오 버튼들 간의 간격을 넓힘 */
+    align-items: center;       /* 라디오 버튼과 텍스트를 수직 정렬 */
+  }
+  
+  .radio-item {
+    height:55px;               /* 라디오 버튼의 세로 높이 디테일 지정 */
+    display: flex;
+    align-items: center;       /* 라디오 버튼과 텍스트를 세로로 정렬 */
+  }
+  
+  .radio-item input {
+    margin-right: 12px;         /* 라디오 버튼과 라벨 사이에 여백을 추가 */
+  }
+
+.email-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 간격 설정 */
+}
+
+.email-group input {
+  flex-grow: 1;
+  padding-right: 20px; /* 버튼과 간격을 주기 위한 여백 */
+  height: 40px; /* 입력 필드의 높이를 설정 */
+}
+
+.email-btn {
+  height: 40px; /* 버튼의 높이를 입력 필드와 동일하게 설정 */
+  padding: 0 20px; /* 버튼 텍스트의 좌우 패딩 */
+  font-size: 14px; /* 버튼 텍스트의 폰트 크기 */
+  line-height: 40px; /* 버튼 텍스트 수직 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
