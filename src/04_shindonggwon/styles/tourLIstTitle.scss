@@ -1,0 +1,9 @@
+.transparent-button {
+    background-color: transparent;
+    color: #333; /* 버튼 텍스트 색상 */
+  }
+  
+  .transparent-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 호버 시 배경색 살짝 변경 */
+  }
+  

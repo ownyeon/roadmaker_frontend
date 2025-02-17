@@ -17,11 +17,11 @@ const RankList = () => {
   const [filterOption, setFilterOption] = useState<string[]>([]); // 선택된 필터 태그
   const [filteredItems, setFilteredItems] = useState<Tour[]>([]); // 필터링된 여행지 리스트
 
-  // filterOption이 변경될 때마다 필터링된 여행지 리스트 업데이트
+  // 선택된 태그를 포함하는 여행지 리스트 필터링
   useEffect(() => {
     setFilteredItems(
       blogsData.filter((elm) =>
-        filterOption.every((tag) => elm.tags.includes(tag)) // 모든 선택된 태그가 포함된 항목만 필터링
+        filterOption.length === 0 || filterOption.every((tag) => elm.tags.includes(tag))
       )
     );
   }, [filterOption]);
@@ -71,21 +71,24 @@ const RankList = () => {
 
       {/* 여행지 리스트 */}
       <div className="row y-gap-30 pt-30">
-        {filteredItems.slice(0, 9).map((item) => (
-          <div className="col-lg-4 col-sm-6" key={item.id}>
-            <Link to={`/blog-details/${item.id}`} className="blogCard -type-1 d-block">
-              <div className="blogCard__image">
-                <div className="rounded-8">
-                  <img className="cover w-100 img-fluid" src={item.img} alt="image" />
+        {filteredItems.slice(0, 9).map((item) => {
+          console.log(`/TourListDetail/${item.id}`); // 콘솔 로그 위치 수정
+          return (
+            <div className="col-lg-4 col-sm-6" key={item.id}>
+              <Link to={`/TourListDetail/${item.id}`} className="blogCard -type-1 d-block">
+                <div className="blogCard__image">
+                  <div className="rounded-8">
+                    <img className="cover w-100 img-fluid" src={item.img} alt="image" />
+                  </div>
                 </div>
-              </div>
-              <div className="pt-20">
-                <h4 className="text-dark-1 text-18 fw-500">{item.title}</h4>
-                <div className="text-light-1 text-15 lh-14 mt-5">{item.date}</div>
-              </div>
-            </Link>
-          </div>
-        ))}
+                <div className="pt-20">
+                  <h4 className="text-dark-1 text-18 fw-500">{item.title}</h4>
+                  <div className="text-light-1 text-15 lh-14 mt-5">{item.date}</div>
+                </div>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

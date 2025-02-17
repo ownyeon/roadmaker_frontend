@@ -1,0 +1,48 @@
+.tourList-gallery {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .gallery-container {
+    display: flex;
+    flex-direction: column; /* 메인 이미지와 썸네일을 세로로 정렬 */
+    align-items: center; /* 가로 정렬을 가운데로 맞추기 */
+    justify-content: center;
+  }
+  
+  .main-image img {
+    width: 500px; /* 메인 사진의 너비를 부모 너비에 맞춤 */
+    height: 300px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: filter 0.3s ease;
+  }
+  
+  .thumbnail-images {
+    display: flex;
+    margin-top: 10px; /* 메인 이미지와 썸네일 간 간격 */
+    justify-content: center; /* 썸네일들을 가운데 정렬 */
+    gap: 30px; /* 썸네일 간격 */
+  }
+  
+  .thumbnail {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .thumbnail img {
+    width: 100px; /* 썸네일 이미지의 너비 */
+    height: 70px; /* 썸네일 이미지의 높이 */
+    object-fit: cover; /* 이미지 비율 유지 */
+    filter: blur(1px); /* 기본적으로 블러 처리 */
+    transition: filter 0.3s ease; /* 블러 효과 전환 */
+  }
+  
+  .thumbnail img.active {
+    filter: none; /* 클릭한 썸네일만 블러 제거 */
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1); /* 썸네일 클릭 시 확대 효과 */
+  }
+  
