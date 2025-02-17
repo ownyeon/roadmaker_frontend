@@ -25,4 +25,20 @@
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  
+}
+
+.password-link {
+  color: #007bff; 
+  text-decoration: none; 
+
+  &:hover {
+    text-decoration: underline; 
+  }
+}
+
+.button {
+  height: 60px; // ✅ 버튼 높이 증가
+  padding: 12px 32px; // ✅ 내부 패딩 조정
+  width: 100%; // ✅ 부모 요소 크기만큼 확장
 }
