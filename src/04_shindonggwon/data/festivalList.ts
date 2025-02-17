@@ -6,7 +6,7 @@ const festivals = [
       date: "2025-02-15",
       delayAnimation: "100",
       details: `For decades, travelers have been escaping to the Catskills — a mountainous region in upstate New York — whenever they’ve needed a reset.`,
-      tags: ["#맛집", "#서울"],
+      tags: ["#맛집", "#서울", "#가족과함께"],
     },
     {
       id: 2,
