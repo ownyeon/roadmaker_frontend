@@ -1,8 +1,8 @@
 const CommentList = () => {
   return (
     <div className="container commentList">
-      <div className="row px-20 subFont text-16">
-        <div className="col-9 mt-20">
+      <div className="row px-20 subFont text-16 mt-20 mb-20">
+        <div className="col-10">
           <div className="row">
             <div className="col-12">
               <p>
@@ -20,7 +20,7 @@ const CommentList = () => {
             </div>
           </div>
         </div>
-        <div className="col-3 text-end text-24 ">
+        <div className="col-2 text-end text-24 ">
           <i className="bi bi-exclamation-triangle mr-20 pointer softFont"></i>
         </div>
       </div>

@@ -1,4 +1,4 @@
-const TravelList = () => (
+const TravelList = ({travelDetail}:{travelDetail:()=>void}) => (
     // 추후 map을 이용해서 불러오기
   <div className="row">
     <div className="col-4 pointer">
@@ -8,7 +8,7 @@ const TravelList = () => (
         alt="여행지사진"
       />
     </div>
-    <div className="col-7 pointer d-flex flex-column">
+    <div className="col-7 pointer d-flex flex-column" onClick={travelDetail}>
       <div className="row" style={{ height: "100%" }}>
         <div className="col-12">
           <div className="titleFont">봄화은어축제</div>

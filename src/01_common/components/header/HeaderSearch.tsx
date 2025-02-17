@@ -10,7 +10,7 @@ const HeaderSearch = () => {
         placeholder="당신의 꿈을 이룰 여행지, 지금 찾아보세요."
       />
       <button type="submit" className="relative d-flex items-center h-full mr-20">
-      <i className="bi bi-search fs-4"></i>
+      <i className="bi bi-search"></i>
       </button>
     </div>
   );

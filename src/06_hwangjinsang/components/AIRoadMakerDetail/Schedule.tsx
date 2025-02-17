@@ -1,6 +1,11 @@
+import { useEffect, useState } from "react";
 import TravelList from "./TravelList";
+import TravelAIDetail from "./TravelAIDetail";
 
 const Schedule = () => {
+  const [isTravelDetail, setIsTravelDetail] = useState(false);
+  const [detailOpenString, setDetailOpenString] = useState("");
+
   const childClickHandle = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
     if (target && target.closest(".day")) {
@@ -16,6 +21,13 @@ const Schedule = () => {
       menu.classList.add("titleFont");
     }
   };
+  const travelDetail = () => {
+    setIsTravelDetail((prev) => !prev);
+  };
+  // 상세보기 boolean 값 변경시 오픈 클로즈 이벤트
+  useEffect(() => {
+    setDetailOpenString(isTravelDetail ? "open" : "");
+  }, [isTravelDetail]);
   return (
     <>
       <div className="row subFont mt-10">
@@ -27,8 +39,13 @@ const Schedule = () => {
           </div>
         </div>
         <hr />
-        <TravelList />
+        <TravelList travelDetail={travelDetail} />
       </div>
+      <TravelAIDetail
+        setIsTravelDetail={setIsTravelDetail}
+        detailOpenString={detailOpenString}
+        setDetailOpenString={setDetailOpenString}
+      />
     </>
   );
 };

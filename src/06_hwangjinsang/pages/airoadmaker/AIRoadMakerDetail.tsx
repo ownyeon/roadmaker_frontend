@@ -1,4 +1,4 @@
-import Sidebar from "../../components/AIRoadMaker/Sidebar";
+import Sidebar from "../../components/AIRoadMakerDetail/Sidebar";
 import "../../styles/common.scss";
 import "../../styles/AIRoadMakerDetail.scss";
 import Map from "../../components/common/map/LoadMap";

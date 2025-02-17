@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 const CourseName = ({
+  setIsScheduleEdit,
   setIsEditOpen,
 }: {
+  setIsScheduleEdit: React.Dispatch<React.SetStateAction<boolean>>;
   setIsEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [courseName, setCourseName] = useState("");
@@ -12,12 +14,14 @@ const CourseName = ({
         <i
           className="icon icon-close pointer"
           onClick={() => {
+            setIsScheduleEdit(false);
             setIsEditOpen(false);
           }}
         ></i>
         <div
           className="pointer"
           onClick={() => {
+            setIsScheduleEdit(false);
             setIsEditOpen(false);
           }}
         >
