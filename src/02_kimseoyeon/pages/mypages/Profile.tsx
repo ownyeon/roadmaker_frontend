@@ -2,7 +2,7 @@ import React from "react";
 import AvatarUploader from "./AvatarUploader";
 import { Link } from "react-router-dom";
 
-const Profile: React.FC = () => {
+const Profile = () => {
   return (
     <div className="dashboard">
       <div className="dashboard__main">

@@ -1,6 +1,63 @@
-.adminDashboard{
-   width : 100px;
- & .sidebar{
+.pageBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #efefef;
+  z-index: -100;
+}
+.adminDashboard,
+.adminComplaint,
+.adminTravel,
+.adminNewTravel,
+.adminMember,
+.adminCourse,
+.adminKeyword {
+  .row {
+    margin: 0;
+    margin-top: 5px;
+    & .col-2 {
+      padding: 3% 1% 3% 1%;
+      & img {
+        width: 80%;
+      }
+    }
+    & .col-10 {
+      padding: 0;
+      padding-left: 5%;
+    }
+  }
+  & .sidebar {
+    width: clamp(250px, 30vw, 350px);
+    background-color: white;
+    .arrow {
+      .bi-chevron-right {
+        display: inline-block;
+        transition: transform 0.3s ease-in-out;
+        transform-origin: 45% 35%;
+      }
+      .bi-chevron-right.down {
+        transform: rotate(90deg);
+      }
+    }
+    & .-is-active {
+      background-color: rgba(rgb(53, 84, 209, 0.05), 0.05) !important;
+      color: var(--color-blue-1) !important;
+    }
 
- }
+    & .subMenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
+        margin-bottom 0.3s ease-in-out;
+      opacity: 0;
+
+      &.open {
+        margin-bottom: 20px;
+        max-height: 100px; // 적절한 높이로 설정
+        opacity: 1;
+      }
+    }
+  }
 }

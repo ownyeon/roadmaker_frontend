@@ -12,7 +12,7 @@ const Sidebar = () => {
       id: 1,
       icon: "/src/02_kimseoyeon/assets/images/travel.png",
       name: "여행 코스",
-      routePath: "/dashboard/db-dashboard",
+      routePath: "/mypage/TravelCourse",
     },
     {
       id: 2,

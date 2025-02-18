@@ -79,15 +79,15 @@ const Header = () => {
                   <Link
                     to="/mypage"
                     className={
-                      pathname === "/mypage" ? "current mr-20" : "mr-20"
+                      pathname.startsWith("/mypage") ? "current mr-20" : "mr-20"
                     }
                   >
                     마이페이지
                   </Link>
                   <Link
-                    to="/admin"
+                    to="/admin/dashboard"
                     className={
-                      pathname === "/admin" ? "current mr-20" : "mr-20"
+                      pathname.startsWith("/admin")? "current mr-20" : "mr-20"
                     }
                   >
                     관리자페이지

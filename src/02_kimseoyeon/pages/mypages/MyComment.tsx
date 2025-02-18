@@ -103,9 +103,7 @@ const MyComment: React.FC = () => {
                     <td>맛집</td>
                     <td>2024-02-15</td>
                     <td>
-                    <button className="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-yellow-4 text-yellow-3">
-                          수정
-                        </button>
+                
                         <button className="rounded-100 py-4 px-10 text-center text-14 fw-500 bg-blue-1-05 text-blue-1">
                           삭제
                         </button>
