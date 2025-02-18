@@ -104,8 +104,8 @@ const SignUpForm = () => {
   return (
     <form className="row y-gap-20" onSubmit={handleSubmit}>
       <div className="col-12">
-        <h1 className="text-22 fw-500">회원가입</h1>
-        <p className="mt-10">
+        <h1 className="text-24 fw-500 titleFont">회원가입</h1>
+        <p className="mt-10 subFont">
           이미 계정이 있나요?{" "}
           <Link to="/login" className="text-blue-1">
             로그인
@@ -114,7 +114,7 @@ const SignUpForm = () => {
       </div>
 
       {/* 이메일 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input email-group">
           <input
             type="email"
@@ -136,7 +136,7 @@ const SignUpForm = () => {
 
       {/* 이메일 인증 코드 */}
       {isEmailSent && (
-        <div className="col-12">
+        <div className="col-12 subFont">
           <div className="form-input">
             <input
               type="text"
@@ -151,7 +151,7 @@ const SignUpForm = () => {
       )}
 
       {/* 닉네임 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input">
           <input
             type="text"
@@ -165,7 +165,7 @@ const SignUpForm = () => {
       </div>
 
       {/* 비밀번호 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input">
           <input
             type="password"
@@ -179,7 +179,7 @@ const SignUpForm = () => {
       </div>
 
       {/* 비밀번호 확인 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input">
           <input
             type="password"
@@ -193,7 +193,7 @@ const SignUpForm = () => {
       </div>
 
       {/* 성별 선택 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input">
           <div className="radio-group">
             <div className="radio-item">
@@ -235,7 +235,7 @@ const SignUpForm = () => {
 
 
       {/* 태어난 연도 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="form-input">
           <input
             type="number"
@@ -253,7 +253,7 @@ const SignUpForm = () => {
 
 
       {/* 약관 동의 */}
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div className="d-flex">
           <div className="form-checkbox mt-5">
             <input
@@ -272,7 +272,7 @@ const SignUpForm = () => {
         </div>
       </div>
 
-      <div className="col-12">
+      <div className="col-12 subFont">
         <button
           type="submit"
           className="button py-20 -dark-1 bg-blue-1 text-white w-100"

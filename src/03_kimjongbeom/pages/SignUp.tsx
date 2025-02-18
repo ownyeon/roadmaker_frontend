@@ -1,8 +1,7 @@
 // src/03_kimjongbeom/pages/SignUp.tsx
 
-import CallToActions from "../components/common/CallToActions";  // CallToActions 컴포넌트
-import LoginWithSocial from "../components/common/LoginWithSocial";  // SNS 간편 로그인 컴포넌트
-import SignUpForm from "../components/common/SignUpForm";  // 회원가입 폼 컴포넌트
+import LoginWithSocial from "../components/common/LoginWithSocial"; // SNS 간편 로그인 컴포넌트
+import SignUpForm from "../components/common/SignUpForm"; // 회원가입 폼 컴포넌트
 
 const SignUp = () => {
   return (
@@ -22,11 +21,11 @@ const SignUp = () => {
 
                 <div className="row y-gap-20 pt-30">
                   <div className="col-12">
-                    <div className="text-center">or sign in with</div>
+                    <div className="text-center subFont">or sign in with</div>
                   </div>
                   <LoginWithSocial />   {/* SNS 로그인 버튼들 */}
                   <div className="col-12">
-                    <div className="text-center px-30">
+                    <div className="text-center px-30 subFont">
                       By creating an account, you agree to our Terms of Service
                       and Privacy Statement.
                     </div>
@@ -39,9 +38,6 @@ const SignUp = () => {
         </div>
       </section>
       {/* End login section */}
-
-      <CallToActions />
-      {/* End Call To Actions Section */}
 
     </>
   );

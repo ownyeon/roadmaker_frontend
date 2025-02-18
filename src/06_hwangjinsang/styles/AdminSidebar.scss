@@ -1,0 +1,67 @@
+.row {
+  margin: 0;
+  margin-top: 5px;
+  & .col-2 {
+    padding: 1% 1% 3% 1%;
+    @media (max-width: 991px) {
+      padding: 3% 1% 3% 1%;
+    }
+    & img {
+      width: 80%;
+      @media (max-width: 991px) {
+        width: 40%;
+      }
+    }
+  }
+  & .col-10 {
+    padding: 0;
+    padding-left: 5%;
+    @media (max-width: 991px) {
+      padding-left: 1%;
+    }
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: clamp(250px, 30vw, 350px);
+  background-color: white;
+  @media (max-width: 991px) {
+    padding: 0;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  .arrow {
+    .bi-chevron-right {
+      display: inline-block;
+      transition: transform 0.3s ease-in-out;
+      transform-origin: 45% 35%;
+    }
+    .bi-chevron-right.down {
+      transform: rotate(90deg);
+    }
+  }
+  & .-is-active {
+    background-color: rgba(rgb(53, 84, 209, 0.05), 0.05) !important;
+    color: var(--color-blue-1) !important;
+  }
+
+  & .subMenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
+      margin-bottom 0.3s ease-in-out;
+    opacity: 0;
+
+    &.open {
+      margin-bottom: 10px;
+      max-height: 100px; // 적절한 높이로 설정
+      opacity: 1;
+    }
+  }
+}

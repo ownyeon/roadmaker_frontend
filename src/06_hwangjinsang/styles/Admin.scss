@@ -1,3 +1,10 @@
+//제목 반응형 사라지기
+.title{
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+// 페이지 백그라운드
 .pageBg {
   position: fixed;
   top: 0;
@@ -7,57 +14,143 @@
   background-color: #efefef;
   z-index: -100;
 }
-.adminDashboard,
-.adminComplaint,
-.adminTravel,
-.adminNewTravel,
-.adminMember,
-.adminCourse,
-.adminKeyword {
-  .row {
-    margin: 0;
-    margin-top: 5px;
-    & .col-2 {
-      padding: 3% 1% 3% 1%;
-      & img {
-        width: 80%;
-      }
-    }
-    & .col-10 {
+//html에 걸기
+html.admin-dashboard {
+  padding-left: clamp(250px, 30vw, 350px);
+  @media (max-width: 991px) {
+    body {
+      margin: 0;
       padding: 0;
-      padding-left: 5%;
+    }
+    padding-left: 0;
+  }
+}
+// 대시보드 페이지
+.adminDashboard {
+  .right {
+    @media (max-width: 991px) {
+      margin-top: 20px;
     }
   }
-  & .sidebar {
-    width: clamp(250px, 30vw, 350px);
-    background-color: white;
-    .arrow {
-      .bi-chevron-right {
-        display: inline-block;
-        transition: transform 0.3s ease-in-out;
-        transform-origin: 45% 35%;
-      }
-      .bi-chevron-right.down {
-        transform: rotate(90deg);
-      }
-    }
-    & .-is-active {
-      background-color: rgba(rgb(53, 84, 209, 0.05), 0.05) !important;
-      color: var(--color-blue-1) !important;
-    }
-
-    & .subMenu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
-        margin-bottom 0.3s ease-in-out;
-      opacity: 0;
-
-      &.open {
-        margin-bottom: 20px;
-        max-height: 100px; // 적절한 높이로 설정
-        opacity: 1;
+  .chartList {
+    overflow-y: auto;
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    .col-4 {
+      padding: 0;
+      .row {
+        border-radius: 5px;
+        padding: 7px;
+        margin: 5px;
+        border: 1px solid #dfdfdf;
+        .col-12 {
+          padding: 0;
+        }
       }
     }
+    .add.col-12 {
+      padding: 0;
+      padding-right: 7px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .addBtn {
+        padding: 2px 7px;
+        border-radius: 5px;
+        border: 1px solid #dfdfdf;
+      }
+    }
+  }
+  .row {
+    margin: 0;
+  }
+  .chartDetail {
+    overflow-y: auto;
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    .chartMain {
+      padding: 0;
+    }
+  }
+  .notification {
+    overflow-y: auto;
+    & .row {
+      padding: 0;
+    }
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    .travel,
+    .newTravel,
+    .comment {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+      button {
+        border-radius: 5px;
+        padding: 2px 5px;
+        background-color: black;
+        color: white;
+        transition: transform 0.1s ease-in-out;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+//신고관리 페이지
+.adminComplaint {
+  .left,
+  .right {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    @media (max-width: 991px) {
+      max-height: none;
+      overflow-y: none;
+    }
+  }
+  .right{
+    @media (max-width: 991px) {
+      margin-top: 20px;
+    }
+  }
+  .borderBottom {
+    padding: 0;
+    border-bottom: 1px solid #dfdfdf;
+    .clickActive {
+      padding-bottom: 5px;
+      border-bottom: 3px solid;
+    }
+  }
+  .travelComplaint {
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+    .col-8 {
+      padding: 0;
+    }
+    .col-4 {
+      padding: 0;
+    }
+  }
+  .locationBtn {
+    border-radius: 5px;
+    padding: 2px 6px;
+    background-color: black;
+    color: white;
+  }
+  .complete {
+    border-radius: 5px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #dfdfdf;
   }
 }
