@@ -1,5 +1,4 @@
 import blogsData from "../../data/blogs";
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface BlogItem {
@@ -9,7 +8,7 @@ interface BlogItem {
     date: string;
   }
   
-  const FavoriteDesinations: React.FC = () => {
+  const FavoriteDesinations  = () => {
     return (
       <div className="dashboard">
         <div className="dashboard__main">
