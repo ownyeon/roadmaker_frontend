@@ -16,14 +16,14 @@ const LoginForm = () => {
             style={{ width: "60px", height: "40px" }}  // 로고 크기 조정
           />
           {/* 텍스트 */}
-          <div className="font-large" style={{fontSize:"24px"}}>Road Maker</div>
+          <div className="titleFont text-26 " style={{fontSize:"24px"}}>Road Maker</div>
         </div>
-        <h1 className="text-22 fw-500">AI 여행 스케줄링 플래너, 로드 메이커</h1>
+        <h1 className="text-16 fw-500 subFont">AI 여행 스케줄링 플래너, 로드 메이커</h1>
       </div>
 
       {/* End .col */}
 
-      <div className="col-12">
+      <div className="col-12 subFont">
         <div>아이디(이메일)</div>
         <div className="form-input ">
           <input type="text" required />
@@ -44,7 +44,7 @@ const LoginForm = () => {
 
       {/* End .col */}
 
-      <div className="col-12">
+      <div className="col-12 subFont">
         <button
           type="submit"
           className="button py-20 -dark-1 bg-blue-1 text-white w-100"

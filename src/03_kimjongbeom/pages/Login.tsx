@@ -1,13 +1,13 @@
-import CallToActions from "../components/common/CallToActions"; 
 // CallToActions 컴포넌트 불러오기
 
-import LoginWithSocial from "../components/common/LoginWithSocial"; 
+import LoginWithSocial from "../components/common/LoginWithSocial";
 // SNS 간편 로그인 컴포넌트 불러오기
 
-import LoginForm from "../components/common/LoginForm"; 
+import LoginForm from "../components/common/LoginForm";
 // 로그인 폼 컴포넌트 불러오기
 
-import LoginCSS from "../css/Login.module.scss"; 
+import '../css/Font.scss';
+import LoginCSS from "../css/Login.module.scss";
 // 로그인 페이지 스타일을 위한 CSS 모듈 불러오기
 
 //====================================================================
@@ -31,7 +31,7 @@ const LogIn = () => {
         <div className="container">
           <div className="row justify-center">
             <div className="col-xl-6 col-lg-7 col-md-9">
-              <div className="px-50 py-50 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4">
+              <div className="px-50 py-50 sm:px-20 sm:py-20 bg-white rounded-5 loginContainer">
                  {/* 큰 화면에서는 여백을 크게, 작은 화면에서는 여백을 작게 설정, 흰 배경, 그림자, 둥근 모서리 스타일 */}
                 <LoginForm />
                 {/* End .Login */}
@@ -62,10 +62,6 @@ const LogIn = () => {
         </div>
       </section>
       {/* End login section */}
-
-      <CallToActions />
-      {/* 로그인 후 사용자가 취할 수 있는 행동을 유도하는 Call To Action 섹션 */}
-      {/* End Call To Actions Section */}
     </>
   );
 };

@@ -13,6 +13,9 @@ const AdminMember = () => {
   return (
     <div className="adminMember">
       <div className="pageBg" />
+      <div className="row">
+        <div className="col-12 titleFont text-24 title">• 신고 관리</div>
+      </div>
     </div>
   );
 };
