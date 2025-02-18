@@ -1,0 +1,39 @@
+/* 부모 컨테이너 크기 설정 */
+.map-container {
+  width: 90%;            /* 부모 요소의 90% 너비로 설정 */
+  max-width: 800px;      /* 최대 너비를 800px로 제한 */
+  height: 400px;         /* 기본 높이 설정 */
+  margin: 0 auto;        /* 부모 컨테이너 내에서 가로 중앙 정렬 */
+  display: flex;         /* flexbox로 자식 요소들을 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;   /* 세로 중앙 정렬 */
+  position: relative;    /* 자식 요소를 절대적으로 배치 가능하게 함 */
+}
+
+/* 지도 크기 설정 */
+#map {
+  width: 100%;           /* 부모 컨테이너에 맞게 너비를 100%로 설정 */
+  height: 100%;          /* 부모 컨테이너에 맞게 높이를 100%로 설정 */
+  object-fit: cover;     /* 지도 비율을 유지하면서 부모 컨테이너에 맞게 잘라짐 */
+  position: absolute;    /* 부모 컨테이너 내에서 절대 위치 설정 */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1200px) {
+  .map-container {
+    height: 350px;       /* 화면 크기가 1200px 이하일 때 높이 줄이기 */
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px;       /* 화면 크기가 768px 이하일 때 높이 줄이기 */
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container {
+    width: 100%;         /* 모바일 화면에서는 너비를 100%로 설정 */
+    height: 250px;       /* 화면 크기가 480px 이하일 때 높이 줄이기 */
+  }
+}

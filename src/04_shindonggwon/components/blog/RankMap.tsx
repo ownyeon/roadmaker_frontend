@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "../../styles/rankMap.scss";
 
 // 태그 데이터
 const tags = [
@@ -50,7 +51,11 @@ const RankMap = ({ onMapClick }: RankMapProps) => { // onMapClick prop에 대한
     });
   }, [onMapClick]);
 
-  return <div id="map" style={{ width: "100%", height: "500px" }} />;
+  return (
+    <div className="map-container">
+      <div id="map" />
+    </div>
+  );
 };
 
 export default RankMap;

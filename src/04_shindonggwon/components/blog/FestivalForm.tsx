@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // useNavigate 훅 추가
-import FestivalSubImageUploader from "../components/blog/FestivalSubImageUploader";
-import FestivalMainImageUploader from "../components/blog/FestivalMainImageUploader";
+import FestivalSubImageUploader from "./FestivalSubImageUploader";
+import FestivalMainImageUploader from "./FestivalMainImageUploader";
+import "../../styles/common.scss";
+import "../../styles/festivalForm.scss";
 
 const FestivalForm = () => {
   const [festivalName, setFestivalName] = useState("");

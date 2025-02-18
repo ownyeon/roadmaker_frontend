@@ -21,7 +21,7 @@ import AIRoadMakerStart from "./06_hwangjinsang/pages/airoadmaker/AIRoadMakerSta
 import NewFestival from "./04_shindonggwon/pages/NewFestival";
 import NewRegister from "./05_choesuji/pages/newregister";
 import TourListDetail from "./04_shindonggwon/pages/TourListDetail";
-
+import TourListReport from "./04_shindonggwon/pages/TourListReport";
 
 import AdminDashboard from "./06_hwangjinsang/pages/admin/AdminDashboard";
 if (typeof window !== "undefined") {
@@ -48,7 +48,7 @@ function App() {
         <Route path="/list" element={<FindTourList/>}/> {/* 여행지 리스트 */}
         <Route path="/TourListDetail/:id" element={<TourListDetail/>}/> {/* 여행지 상세페이지*/}
         <Route path="/list/new" element={<NewRegister/>}/> {/* 여행지 신규 등록*/}
-        <Route path="/list/report" /> {/* 여행지 신고 */}
+        <Route path="/list/report" element={<TourListReport/>}/> {/* 여행지 신고 */}
         <Route path="/list/rank"  element={<Rank/>} /> {/* 여행지 순위 */}
         <Route path="/list/festival" element={<CalendarComponent/>} /> {/* 여행지 축제 페이지 */}
         <Route path="/list/festival/new" element={<NewFestival/>}/> {/* 축제 신규등록 페이지 */}

@@ -1,0 +1,34 @@
+
+.detailInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  
+    .leftSection,
+  .rightSection {
+    width: 45%;  // 두 섹션의 너비를 각각 45%로 설정
+  }
+  
+  h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  }
+  
+  
+}
+  
+  
+  

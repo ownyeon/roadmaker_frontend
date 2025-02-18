@@ -1,0 +1,41 @@
+.tagBtn {
+    /* 기존 .tagBtn 스타일 */
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 20px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1); /* 버튼에 그림자 효과 */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "establishRetrosansOTF", sans-serif;
+    font-weight: bold;
+    /* 반응형 스타일 */
+    @media (max-width: 767px) {
+      font-size: 24px !important; /* 모바일 화면에서 폰트 크기를 24px로 */
+    }
+  
+    /* .fw-500 (font-weight: 500) */
+    font-weight: 500;
+  
+    /* .px-20 (좌우 여백 20px) */
+    padding-left: 20px;
+    padding-right: 20px;
+  
+    /* .py-10 (상하 여백 10px) */
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+    /* .rounded-4 (모서리 둥글게) */
+    border-radius: 4px;
+  
+    /* .js-tabs-button 스타일 (필요한 경우 추가) */
+    cursor: pointer; /* 버튼에 마우스를 올렸을 때 클릭 가능한 느낌을 줌 */
+  }
+  
+  .is-tab-el-active {
+    /* 활성화된 버튼에 스타일 추가 */
+    background-color: #f0f0f0; /* 활성화된 버튼의 배경색 */
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2); /* 활성화된 버튼에 그림자 효과 */
+  }
+  
+  

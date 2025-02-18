@@ -1,0 +1,43 @@
+.parent-container {
+    text-align: right; /* 버튼을 오른쪽으로 정렬 */
+}
+
+.btn {   
+    /* 버튼 스타일 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1); /* 버튼에 그림자 효과 */
+    border-radius: 30px; /* 둥근 모서리 */
+    color: black; /* 기본 텍스트 색상 */
+    background-color: #fff; /* 기본 배경색 */
+    padding: 10px 20px; /* 여백 */
+
+    font-family: "establishRetrosansOTF", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer; /* 클릭 가능한 스타일 */
+    
+    /* .rounded-4 (모서리 둥글게) */
+    border-radius: 4px;
+
+    /* 반응형 스타일 */
+    @media (max-width: 767px) {
+        font-size: 10px !important; /* 모바일 화면에서 폰트 크기 조정 */
+    }
+
+    /* hover 시 색상 반전 */
+    &:hover {
+        background-color: black; /* 배경색을 어둡게 */
+        color: #f0f0f0; /* 글자색을 밝게 */
+    }
+}
+
+/* 활성화된 버튼 스타일 */
+.is-tab-el-active {
+    background-color: black;
+    color: #f0f0f0;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}

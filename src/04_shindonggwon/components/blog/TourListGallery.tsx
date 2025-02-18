@@ -15,12 +15,12 @@ const TourListGallery = ({ images }: TourListGalleryProps) => {
   return (
     <div className="tourList-gallery">
       <div className="gallery-container">
-        {/* 큰 사진 */}
+        
         <div className="main-image">
           <img src={mainImage} alt="Main view" className="img-fluid" />
         </div>
 
-        {/* 작은 사진들 */}
+        
         <div className="thumbnail-images">
           {images.map((subImage, index) => (
             <div

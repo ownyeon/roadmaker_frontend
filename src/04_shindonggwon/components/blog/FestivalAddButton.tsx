@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위한 useNavigate
+import "../../styles/FestivalAddButton.scss"
 
 const FestivalAddButton: React.FC = () => {
   const navigate = useNavigate();
@@ -10,10 +11,10 @@ const FestivalAddButton: React.FC = () => {
   };
 
   return (
-    <div className="pt-30">
+    <div className="parent-container">
       <button 
-        onClick={handleClick} 
-        className="btn btn-primary w-full"
+        onClick={handleClick}
+        className='btn' 
       >
         신규 축제 등록
       </button>

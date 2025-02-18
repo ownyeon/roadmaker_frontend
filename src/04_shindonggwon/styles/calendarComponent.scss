@@ -1,0 +1,53 @@
+/* 부모 컨테이너에 고정 너비 또는 최소 너비 설정 */
+.container {
+  min-width: 600px;
+}
+
+/* 이미지가 부모 컨테이너 크기에 맞게 축소될 수 있도록 설정 */
+img.cover {
+  max-width: 600px;
+  height: auto;
+}
+
+/* flex나 grid의 경우, 항목들이 차지할 너비를 고정 */
+.blogCard {
+  flex: 1 0 25%; /* 4개의 열로 설정 (100% ÷ 4 = 25%에서 2% 여백 고려하여 23%로 설정) */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1200px) {
+  .container {
+    min-width: 100%; /* 화면 크기가 1200px 이하일 때, 부모 컨테이너 너비 100% */
+  }
+
+  .blogCard {
+    flex: 1 0 45%; /* 화면 크기가 작아지면, 2개의 열로 변경 */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px; /* 모바일 화면에서는 padding을 추가하여 여백을 조정 */
+  }
+
+  .blogCard {
+    flex: 1 0 100%; /* 화면이 더 작을 경우, 1개의 열로 변경 */
+  }
+
+  /* 이미지 크기 조정 (모바일에서 더 나은 크기 조정) */
+  img.cover {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 모바일에서 폰트 크기 조정 */
+  .blogCard h4 {
+    font-size: 16px; /* 제목 폰트 크기 조정 */
+  }
+
+  .blogCard .text-light-1 {
+    font-size: 12px; /* 날짜 폰트 크기 조정 */
+  }
+}
