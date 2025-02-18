@@ -1,17 +1,12 @@
 import Sidebar from "../../components/admin/common/Sidebar";
 import "../../styles/Admin.scss";
 import "../../styles/common.scss";
-
-const AdminDashboard = () => {
-
+const AdminTravel = () => {
   return (
-
-    <div className="adminDashboard">
-      
+    <div className="adminTravel">
       <Sidebar />
-      <div className="pageBg" />
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminTravel;

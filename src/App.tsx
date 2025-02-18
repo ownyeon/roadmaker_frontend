@@ -24,6 +24,12 @@ import TourListDetail from "./04_shindonggwon/pages/TourListDetail";
 
 
 import AdminDashboard from "./06_hwangjinsang/pages/admin/AdminDashboard";
+import AdminComplaint from "./06_hwangjinsang/pages/admin/AdminComplaint";
+import AdminMember from "./06_hwangjinsang/pages/admin/AdminMember";
+import AdminTravel from "./06_hwangjinsang/pages/admin/AdminTravel";
+import AdminNewTravel from "./06_hwangjinsang/pages/admin/AdminNewTravel";
+import AdminCourse from "./06_hwangjinsang/pages/admin/AdminCourse";
+import AdminKeyword from "./06_hwangjinsang/pages/admin/AdminKeyword";
 if (typeof window !== "undefined") {
   import("bootstrap");
 }
@@ -55,7 +61,13 @@ function App() {
         <Route path="/roadtalk" element={<RoadTalk />} /> {/* 로드톡 리스트 페이지*/}
         <Route path="/roadtalk/:id" element={<RoadTalkDetail/>}/> {/* 로드톡 상세 페이지 */}
         <Route path="/mypage/*" element={< Mypage/>}/> {/* 마이페이지 */}
-        <Route path="/admin" element={<AdminDashboard/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/dashboard" element={<AdminDashboard/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/complaint" element={<AdminComplaint/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/member" element={<AdminMember/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/travel" element={<AdminTravel/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/newtravel" element={<AdminNewTravel/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/course" element={<AdminCourse/>}/> {/* 관리자페이지 */}
+        <Route path="/admin/keyword" element={<AdminKeyword/>}/> {/* 관리자페이지 */}
       </Routes>
     </BrowserRouter>
   );

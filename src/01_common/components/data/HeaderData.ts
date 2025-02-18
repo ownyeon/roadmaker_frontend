@@ -4,14 +4,6 @@ interface MenuItem {
   check:boolean;
 }
 
-interface MenuColumn {
-  id: number;
-  title: string;
-  menuList: MenuItem[];
-}
-
-
-
 export const travelItems: MenuItem[] = [
   { name: "여행지 찾기", routePath: "/list" , check:false},
   { name: "여행지 순위", routePath: "/list/rank" ,check:false},
