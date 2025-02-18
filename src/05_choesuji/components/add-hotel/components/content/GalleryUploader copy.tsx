@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../../../../styles/RegistTour.scss";
 
 // 파일 업로드 컴포넌트
 const GalleryUploader: React.FC = () => {
@@ -67,7 +67,6 @@ const GalleryUploader: React.FC = () => {
               gridTemplateColumns: 'repeat(4, 1fr)', // 기본적으로 4개의 슬롯 고르게 배치
               gap: '10px',
               alignItems: 'center',
-              height: '400px', // 테두리 박스 높이를 충분히 늘려서 아래로 확장
             }}
           >
             {/* 업로드 창 4개 */}
@@ -103,42 +102,32 @@ const GalleryUploader: React.FC = () => {
                   <div className="text-start mt-10 text-14 text-light-1">
                     PNG or JPG no bigger than 800px wide and tall.
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* 업로드된 이미지 부분: 별도의 div로 묶어서 아래에 표시 */}
-        <div className="col-12 mt-20">
-          <div className="d-flex flex-wrap gap-10 justify-start">
-            {images.map((image, index) => (
-              image ? (
-                <div key={index} className="w-1/4 p-2">
-                  {/* 각 이미지 박스를 따로 감싸는 div */}
-                  <div
-                    className="relative w-full h-full border border-dashed border-gray-300 rounded-4"
-                    style={{ height: '200px' }} // 이미지 박스 크기 설정
-                  >
-                    <img
-                      src={image}
-                      alt={`image-${index}`}
-                      className="rounded-4 w-full h-full"
-                      style={{
-                        objectFit: 'cover', // 비율을 유지하면서 박스를 꽉 채움
-                      }}
-                    />
-                    <div
-                      className="absolute top-0 right-0 px-2 py-2 cursor-pointer"
-                      onClick={() => handleRemoveImage(index)}
-                    >
-                      <div className="size-30 bg-white rounded-4 flex-center">
-                        <i className="icon-trash text-16" />
+                  {/* 업로드된 이미지가 있으면 표시 */}
+                  {image && (
+                    <div className="d-flex justify-center w-100 mt-10">
+                      <img
+                        src={image}
+                        alt={`image-${index}`}
+                        className="rounded-4"
+                        style={{
+                          width: '100%', // 이미지 크기를 업로드 박스에 맞게 자동으로 설정
+                          height: '100%', // 이미지 크기를 업로드 박스에 맞게 자동으로 설정
+                          objectFit: 'cover', // 비율 유지하면서 박스를 꽉 채움
+                        }}
+                      />
+                      <div
+                        className="d-flex justify-end px-10 py-10 h-100 w-1/1 absolute"
+                        onClick={() => handleRemoveImage(index)}
+                      >
+                        <div className="size-40 bg-white rounded-4 flex-center cursor-pointer">
+                          <i className="icon-trash text-16" />
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
-              ) : null
+              </div>
             ))}
           </div>
         </div>
